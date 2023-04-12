@@ -7,12 +7,9 @@ import androidx.lifecycle.viewModelScope
 import chari.groupewib.com.networking.request.CreateSupplierRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ghoudan.anfaSolution.com.app_models.SupplierAnfa
-import ghoudan.anfaSolution.com.networking.offline.Resource
 import ghoudan.anfaSolution.com.networking.repository.ClientListRepository
 import ghoudan.anfaSolution.com.networking.state.EpApiState
 import javax.inject.Inject
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @HiltViewModel

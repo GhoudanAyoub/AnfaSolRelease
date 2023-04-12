@@ -28,10 +28,10 @@ android {
 
     signingConfigs {
         config {
-            storeFile file("../Apk_Key/chari_ma.jks")
-            storePassword 'charima123456@ma'
-            keyAlias 'Chari_ma'
-            keyPassword 'charima123456@ma'
+            storeFile file("../Apk_Key/anfa.jks")
+            storePassword 'anfa123'
+            keyAlias 'anfa'
+            keyPassword 'anfa123'
         }
     }
 
@@ -62,9 +62,9 @@ android {
         }
     }
 
-    flavorDimensions "chari.co"
+    flavorDimensions "ghoudan.anfaSolution"
     productFlavors{
-        chariPrep {
+        anfaPrep {
             applicationId "ghoudan.anfaSolution.com"
             applicationIdSuffix ".preparateur"
         }

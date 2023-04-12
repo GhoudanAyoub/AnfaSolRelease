@@ -18,7 +18,6 @@ import ghoudan.anfaSolution.com.app_models.SupplierAnfa
 import ghoudan.anfaSolution.com.common_ui.dialog.CustomDialog
 import ghoudan.anfaSolution.com.databinding.FragmentCreateSupplierBinding
 import ghoudan.anfaSolution.com.networking.exception.HttpConflictException
-import ghoudan.anfaSolution.com.networking.exception.HttpNoContentException
 import ghoudan.anfaSolution.com.networking.exception.HttpNotFoundException
 import ghoudan.anfaSolution.com.networking.state.EpApiState
 import ghoudan.anfaSolution.com.utils.AppUtils

@@ -1,6 +1,5 @@
 package chari.groupewib.com.app_models
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 

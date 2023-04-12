@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "707659718221",
+    "project_id": "anfasolutions-7a1a5",
+    "storage_bucket": "anfasolutions-7a1a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707659718221:android:608174b633c5b4a0178604",
+        "android_client_info": {
+          "package_name": "ghoudan.anfaSolution.com.preparateur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707659718221-pge949ilpv3v0143q99da6jicfi8kq57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOizXSE1djnyXvCVZ3hevNj_4pn8lxCkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707659718221-pge949ilpv3v0143q99da6jicfi8kq57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

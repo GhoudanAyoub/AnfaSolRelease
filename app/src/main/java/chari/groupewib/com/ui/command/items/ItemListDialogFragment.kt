@@ -18,7 +18,6 @@ import ghoudan.anfaSolution.com.MainActivity
 import ghoudan.anfaSolution.com.R
 import ghoudan.anfaSolution.com.databinding.FragmentItemListDialogListDialogBinding
 import ghoudan.anfaSolution.com.networking.offline.Resource
-import ghoudan.anfaSolution.com.networking.state.EpApiState
 import ghoudan.anfaSolution.com.ui.orders.detailProducts.OrderDetailProductsController
 import ghoudan.anfaSolution.com.utils.AppUtils
 import ghoudan.anfaSolution.com.utils.PreferencesModule.SELECTED_CUSTOMER_PREFERENCES_NAME

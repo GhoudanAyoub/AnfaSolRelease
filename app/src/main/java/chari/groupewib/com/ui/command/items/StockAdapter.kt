@@ -8,7 +8,6 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import chari.groupewib.com.app_models.Item
 import chari.groupewib.com.app_models.ItemStock
 import chari.groupewib.com.common_ui.product.ItemViewListener
 import ghoudan.anfaSolution.com.common_ui.order.data.ProductOrderViewData

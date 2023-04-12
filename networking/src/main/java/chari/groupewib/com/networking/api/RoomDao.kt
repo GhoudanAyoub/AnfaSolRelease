@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import chari.groupewib.com.app_models.Item
-import chari.groupewib.com.networking.entity.ItemEntity
 import ghoudan.anfaSolution.com.app_models.CustomerAnfa
 import ghoudan.anfaSolution.com.app_models.SupplierAnfa
 import ghoudan.anfaSolution.com.app_models.User

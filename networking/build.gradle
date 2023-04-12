@@ -9,35 +9,23 @@ android {
     buildTypes {
         release {
             minifyEnabled = true
-            buildConfigField "String", "BASE_URL", "\"https://api.chari.co/api/\""
+            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         preprod {
             debuggable = true
-            buildConfigField "String", "BASE_URL", "\"https://preprod-api.chari.co/api/\""
+            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             debuggable = true
-            buildConfigField "String", "BASE_URL", "\"https://dev-api.chari.co/api/\""
+            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
     libraryVariants.all { variant ->
         println("Iterating variant: " + variant.getName())
-        switch (variant.getName()) {
-//          CHARI VARIANT
-            case "chariDebug":
-                buildConfigField "String", "BASE_URL", "\"https://dev-api.chari.co/api/\""
-                break
-            case "chariPreprod":
-                buildConfigField "String", "BASE_URL", "\"https://preprod-api.chari.co/api/\""
-                break
-            case "chariRelease":
-                buildConfigField "String", "BASE_URL", "\"https://api.chari.co/api/\""
-                break
-        }
     }
 
     namespace 'ghoudan.anfaSolution.com.networking'

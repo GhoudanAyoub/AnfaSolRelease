@@ -1,8 +1,8 @@
 android {
-    flavorDimensions "chari.co"
+    flavorDimensions "ghoudan.anfaSolution"
     productFlavors {
-        chariPrep {
-            dimension "chari.co"
+        anfaPrep {
+            dimension "ghoudan.anfaSolution"
         }
     }
 }

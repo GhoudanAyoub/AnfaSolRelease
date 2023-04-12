@@ -2,7 +2,6 @@ package ghoudan.anfaSolution.com.ui.orders.detailProducts
 
 import chari.groupewib.com.app_models.Item
 import chari.groupewib.com.common_ui.product.ItemViewListener
-import chari.groupewib.com.ui.command.items.ItemListDialogFragment
 import ghoudan.anfaSolution.com.common_ui.order.data.ProductOrderViewData
 import ghoudan.anfaSolution.com.common_ui.product.productOrderView
 import com.airbnb.epoxy.TypedEpoxyController

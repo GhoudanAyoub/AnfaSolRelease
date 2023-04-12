@@ -12,14 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import chari.groupewib.com.app_models.Item
 import chari.groupewib.com.common_ui.product.ItemViewListener
-import chari.groupewib.com.ui.command.purchase.PurchaseOrderFragmentDirections
-import chari.groupewib.com.ui.command.sales.CommandFragment
 import dagger.hilt.android.AndroidEntryPoint
-import ghoudan.anfaSolution.com.R
-import ghoudan.anfaSolution.com.common_ui.itemDecoration.CartVerticalItemDecoration
 import ghoudan.anfaSolution.com.databinding.FragmentItemBinding
 import ghoudan.anfaSolution.com.networking.offline.Resource
-import ghoudan.anfaSolution.com.networking.state.EpApiState
 import ghoudan.anfaSolution.com.utils.AnfaAppNavigator
 
 @AndroidEntryPoint
