@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <LinearLayout
+        android:id="@+id/btn_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_toolbar"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_rounded_softgrey"
+        android:gravity="center_vertical"
+        android:minHeight="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_text"
+            style="@style/bodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="8dp"
+            android:text="@string/hint_search"
+            android:textColor="@color/content_darkGrey"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+    </LinearLayout>
+</merge>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.Chari.Button" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- Btn Primary -->
+    <style name="Widget.Chari.Button.BtnPrimary" parent="Widget.Chari.Button">
+        <item name="android:textColor">@color/btn_primary_text_color_state_list</item>
+        <item name="android:background">@drawable/btn_primary_state_list</item>
+    </style>
+
+    <style name="Widget.Chari.Button.BtnPrimary.Large">
+        <item name="android:textAppearance">@style/titleMedium</item>
+        <item name="android:textColor">@color/btn_primary_text_color_state_list</item>
+        <item name="android:height">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+
+    <style name="Widget.Chari.Button.BtnPrimary.Medium">
+        <item name="android:textAppearance">@style/titleMedium</item>
+        <item name="android:height">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">36dp</item>
+        <item name="android:paddingEnd">36dp</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="Widget.Chari.Button.BtnPrimary.Small">
+        <item name="android:textAppearance">@style/titleSmall</item>
+        <item name="android:height">36dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+    </style>
+
+    <!-- Btn Secondary -->
+    <style name="Widget.Chari.Button.BtnSecondary">
+        <item name="android:textColor">@color/btn_secondary_text_color_state_list</item>
+        <item name="android:background">@drawable/btn_secondary_state_list</item>
+    </style>
+
+    <style name="Widget.Chari.Button.BtnSecondary.Large">
+        <item name="android:textAppearance">@style/titleMedium</item>
+        <item name="android:height">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Widget.Chari.Button.BtnSecondary.Medium">
+        <item name="android:textAppearance">@style/titleMedium</item>
+        <item name="android:height">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">36dp</item>
+        <item name="android:paddingEnd">36dp</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+
+    <style name="Widget.Chari.Button.BtnSecondary.Small">
+        <item name="android:textAppearance">@style/titleSmall</item>
+        <item name="android:height">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <!-- Btn Outlined -->
+    <style name="Widget.Chari.Button.BtnOutlined">
+        <item name="android:textColor">@color/btn_outlined_text_color_state_list</item>
+        <item name="android:background">@drawable/btn_outlined_state_list</item>
+    </style>
+
+    <style name="Widget.Chari.Button.BtnOutlined.Large">
+        <item name="android:textAppearance">@style/titleMedium</item>
+        <item name="android:height">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Widget.Chari.Button.BtnOutlined.Medium">
+        <item name="android:textAppearance">@style/titleMedium</item>
+        <item name="android:height">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+
+    <style name="Widget.Chari.Button.BtnOutlined.Small">
+        <item name="android:textAppearance">@style/titleSmall</item>
+        <item name="android:height">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+
+    <!-- Btn Action -->
+    <style name="Widget.Chari.Button.BtnAction">
+        <item name="android:textColor">@color/btn_action_text_color_state_list</item>
+        <item name="android:background">@drawable/btn_action_state_list</item>
+    </style>
+
+    <style name="Widget.Chari.Button.BtnAction.Large">
+        <item name="android:textAppearance">@style/titleMedium</item>
+        <item name="android:height">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Widget.Chari.Button.BtnAction.Medium">
+        <item name="android:textAppearance">@style/titleMedium</item>
+        <item name="android:height">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">36dp</item>
+        <item name="android:paddingEnd">36dp</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+
+    <style name="Widget.Chari.Button.BtnAction.Small">
+        <item name="android:textAppearance">@style/titleSmall</item>
+        <item name="android:height">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="Widget.Chari.Button.BtnText" parent="Widget.Chari.Button">
+        <item name="android:textAppearance">@style/labelLarge</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/btn_text_color_state_list</item>
+        <item name="android:drawableStart">@drawable/btn_resend_state_list</item>
+        <item name="android:drawablePadding">6dp</item>
+    </style>
+
+
+    <!-- LEGACY STYLES - TO DELETE LATER -->
+    <style name="AccentButton" parent="Widget.Chari.Button">
+        <item name="android:background">@drawable/btn_accent_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="PrimaryButton" parent="Widget.Chari.Button">
+        <item name="android:background">@drawable/btn_primary_bg</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="RedButton" parent="Widget.Chari.Button">
+        <item name="android:background">@drawable/btn_red_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="WhiteButton" parent="Widget.Chari.Button">
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/accent_color</item>
+    </style>
+
+    <style name="PrimaryButtonSmall" parent="PrimaryButton">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+</resources>

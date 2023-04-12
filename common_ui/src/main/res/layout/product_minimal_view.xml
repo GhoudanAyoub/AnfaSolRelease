@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:cornerRadius="12dp"
+    tools:elevation="10dp"
+    tools:layout_height="100dp"
+    tools:layout_width="90dp"
+    tools:parentTag="androidx.cardview.widget.CardView">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/product_img"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/product_name_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/san_francisco_display_regular"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/accent_color"
+            android:textSize="12sp"
+            tools:text="Pampers" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</merge>
+
+
+

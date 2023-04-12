@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/poppins_regular"
+    android:gravity="center"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:textAllCaps="false"
+    android:textColor="@color/accent_color"
+    android:textSize="14sp"
+    tools:text="ESPECE" />

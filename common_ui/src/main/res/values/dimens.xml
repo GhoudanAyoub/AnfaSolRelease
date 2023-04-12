@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="product_view_radius">6dp</dimen>
+    <dimen name="product_view_elevation">6dp</dimen>
+    <dimen name="default_horizontal_margin_page">16dp</dimen>
+    <dimen name="alternative_horizontal_margin_page">8dp</dimen>
+    <dimen name="horizontal_collection_item_margin">16dp</dimen>
+    <dimen name="horizontal_collection_item_radius">12dp</dimen>
+    <dimen name="vertical_blocs_items_spacing">20dp</dimen>
+    <dimen name="horizontal_collection_item_elevation">10dp</dimen>
+    <dimen name="product_view_item_width">140dp</dimen>
+    <dimen name="product_view_full_item_width">156dp</dimen>
+    <dimen name="product_view_full_item_elevation">6dp</dimen>
+    <dimen name="product_view_full_item_radius">8dp</dimen>
+    <dimen name="product_view_item_card_height">100dp</dimen>
+    <dimen name="brand_view_item_width">86dp</dimen>
+    <dimen name="brand_view_item_height">100dp</dimen>
+    <dimen name="search_article_view_item_height">128dp</dimen>
+    <dimen name="search_article_view_item_width">121dp</dimen>
+    <dimen name="search_view_item_height">24dp</dimen>
+    <dimen name="article_image_height">227dp</dimen>
+    <dimen name="tab_layout_height">44dp</dimen>
+    <dimen name="tab_layout_elevation">6dp</dimen>
+    <dimen name="order_view_img">120dp</dimen>
+    <dimen name="titlebar_height">43dp</dimen>
+    <dimen name="cardview_similar_products_radius">24dp</dimen>
+    <dimen name="extended_fab_height">48dp</dimen>
+    <dimen name="extended_fab_elevation">4dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="contact_button_padding">20dp</dimen>
+    <dimen name="contact_button_height">60dp</dimen>
+    <dimen name="contact_image_button_height">50dp</dimen>
+    <dimen name="titles_margin_left">10dp</dimen>
+    <dimen name="options_btn_selected_elevation">2dp</dimen>
+    <dimen name="options_btn_unselected_elevation">10dp</dimen>
+
+
+    <dimen name="spacing_xxs">4dp</dimen>
+    <dimen name="spacing_xs">8dp</dimen>
+    <dimen name="spacing_s">12dp</dimen>
+    <dimen name="spacing_m">16dp</dimen>
+    <dimen name="spacing_l">20dp</dimen>
+    <dimen name="spacing_xl">24dp</dimen>
+    <dimen name="spacing_xxl">28dp</dimen>
+    <dimen name="spacing_xxl_2">32dp</dimen>
+    <dimen name="spacing_xxl_3">36dp</dimen>
+    <dimen name="spacing_xxl_4">40dp</dimen>
+    <dimen name="spacing_xxl_5">44dp</dimen>
+    <dimen name="spacing_xxl_6">48dp</dimen>
+    <dimen name="spacing_xxl_7">52dp</dimen>
+    <dimen name="spacing_xxl_8">56dp</dimen>
+</resources>

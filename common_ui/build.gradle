@@ -1,0 +1,51 @@
+plugins {
+    id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'ghoudan.anfaSolution.com.common_ui'
+}
+
+dependencies {
+    implementation project(':app_models')
+    implementation project(':utils')
+    implementation project(':networking')
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.reflect
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.appcompat
+    implementation deps.material
+    implementation deps.epoxy.core
+    implementation deps.androidx.recycler_view
+    implementation deps.androidx.card_view
+    implementation deps.glide.glide
+    implementation deps.lottie
+
+    //serialization
+    implementation deps.serialization.kotlinx_serialization
+    implementation deps.serialization.kotlinx_serialization_converter
+
+    implementation deps.timber
+
+    kapt deps.glide.processor
+    kapt deps.epoxy.processor
+
+    implementation deps.hilt.hilt_android
+    implementation deps.hilt.hilt_compiler
+    kapt deps.hilt.hilt_compiler
+
+    //pageIndicator
+    implementation deps.pagerIndicator
+
+    testImplementation deps.junit
+    androidTestImplementation deps.androidx.junit
+    androidTestImplementation deps.androidx.espresso
+}
+
+kapt {
+    correctErrorTypes = true
+}

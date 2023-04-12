@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".chari.MainActivity">
+
+        <ghoudan.anfaSolution.com.common_ui.appbar.AnfaAppBar
+            android:id="@+id/main_app_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/main_navigation"
+            android:layout_below="@+id/main_app_toolbar"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/navigation" />
+
+        <FrameLayout
+            android:id="@+id/no_data_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/main_navigation"
+            android:layout_below="@+id/main_app_toolbar"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="51dp"
+                android:drawablePadding="42dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/no_data_msg"
+                android:textAlignment="center"
+                android:textColor="@color/coolGrey"
+                android:textSize="26sp"
+                app:drawableBottomCompat="@drawable/ic_refresh" />
+        </FrameLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/main_navigation"
+            android:background="@drawable/bg_top_border_softgrey" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/main_navigation"
+            style="@style/MainNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:minHeight="64dp"
+            app:backgroundTint="@color/content_white"
+            app:elevation="0dp"
+            app:itemBackground="@drawable/ripple_nav_item"
+            app:itemHorizontalTranslationEnabled="false"
+            app:itemIconTint="@color/nav_item_icon_tint"
+            app:itemPaddingBottom="12dp"
+            app:itemPaddingTop="12dp"
+            app:itemRippleColor="@color/content_lightOrange"
+            app:itemTextColor="@color/nav_item_text_color"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/main_menu"
+            app:theme="@style/Theme.MaterialComponents" />
+
+        <FrameLayout
+            android:id="@+id/loader_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent_dash"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="gone">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="16dp">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="loader.json"
+                    app:lottie_loop="true" />
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

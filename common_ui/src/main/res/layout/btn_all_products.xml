@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="64dp"
+    tools:layout_width="match_parent"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/all_products_btn_img"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/AllProductsButtonShape"
+            app:strokeColor="@null"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/gradient_all_products_btn" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/titleMedium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_down"
+                android:text="@string/all_products_btn_label"
+                android:textColor="@color/content_white"
+                tools:ignore="UseCompatTextViewDrawableXml" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</merge>
+
+
+

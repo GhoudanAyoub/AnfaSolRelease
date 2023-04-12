@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="ghoudan.anfaSolution.com.ui.login.LoginFragment"
+        android:label="@string/auth"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/navigation"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_AccountFragment"
+            app:destination="@id/AccountFragment"
+            app:popUpTo="@+id/navigation"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_listClientFragment"
+            app:destination="@id/listClientFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/AccountFragment"
+        android:name="ghoudan.anfaSolution.com.ui.account.AccountFragment"
+        android:label="@string/main_nav_account_title"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_AccountFragment_to_loginFragmentt"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_accountInfosFragment"
+            app:destination="@id/accountInfosFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_commandFragment"
+            app:destination="@id/commandFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_commandDoneFragment"
+            app:destination="@id/commandDoneFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_listClientFragment"
+            app:destination="@id/listClientFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_supplierListFragment"
+            app:destination="@id/supplierListFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountInfosFragment"
+        android:name="ghoudan.anfaSolution.com.ui.account.AccountInfoFragment"
+        android:label="fragment_account_infos"
+        tools:layout="@layout/fragment_account_infos">
+    </fragment>
+
+    <fragment
+        android:id="@+id/createClientFragment"
+        android:name="ghoudan.anfaSolution.com.ui.clients.CreateClientFragment"
+        android:label="CreateClientFragment"
+        tools:layout="@layout/fragment_create_client" >
+        <argument
+            android:name="customer"
+            app:argType="ghoudan.anfaSolution.com.app_models.CustomerAnfa"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listClientFragment"
+        android:name="ghoudan.anfaSolution.com.ui.clients.ClientListFragment"
+        android:label="ListClientFragment"
+        tools:layout="@layout/fragment_list_client">
+
+        <action
+            android:id="@+id/action_listClientFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/navigation"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_listClientFragment_to_createClientFragment"
+            app:destination="@id/createClientFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="ghoudan.anfaSolution.com.ui.account.SupportFragment"
+        android:label="SupportFragment" />
+    <fragment
+        android:id="@+id/commandFragment"
+        android:name="chari.groupewib.com.ui.command.sales.CommandFragment"
+        android:label="CommandFragment">
+        <action
+            android:id="@+id/action_commandFragment_to_commandDoneFragment"
+            app:destination="@id/commandDoneFragment" />
+        <action
+            android:id="@+id/action_commandFragment_to_AccountFragment"
+            app:destination="@id/AccountFragment" />
+        <action
+            android:id="@+id/action_commandFragment_to_createSalesOrder"
+            app:destination="@id/createSalesOrder" />
+    </fragment>
+    <fragment
+        android:id="@+id/commandDoneFragment"
+        android:name="chari.groupewib.com.ui.command.purchase.PurchaseOrderFragment"
+        android:label="CommandDoneFragment" >
+        <action
+            android:id="@+id/action_commandDoneFragment_to_createPurchaseOrder"
+            app:destination="@id/createPurchaseOrder" />
+    </fragment>
+    <fragment
+        android:id="@+id/supplierListFragment"
+        android:name="ghoudan.anfaSolution.com.ui.clients.suppliers.SupplierListFragment"
+        android:label="SupplierListFragment" >
+        <action
+            android:id="@+id/action_supplierListFragment_to_createSupplierFragment"
+            app:destination="@id/createSupplierFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createSalesOrder"
+        android:name="chari.groupewib.com.ui.command.sales.CreateSalesOrder"
+        android:label="CreateSalesOrder" >
+        <argument
+            android:name="cmd"
+            app:argType="ghoudan.anfaSolution.com.app_models.CommandAchat"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="chari.groupewib.com.ui.command.items.ItemFragment"
+        android:label="ItemFragment" >
+        <action
+            android:id="@+id/action_itemFragment_to_createArticle"
+            app:destination="@id/createArticle" />
+    </fragment>
+    <fragment
+        android:id="@+id/createSupplierFragment"
+        android:name="ghoudan.anfaSolution.com.ui.clients.suppliers.CreateSupplierFragment"
+        android:label="CreateSupplierFragment" >
+        <argument
+            android:name="supplier"
+            app:argType="ghoudan.anfaSolution.com.app_models.SupplierAnfa"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPurchaseOrder"
+        android:name="chari.groupewib.com.ui.command.purchase.CreatePurchaseOrder"
+        android:label="CreatePurchaseOrder" >
+        <argument android:name="cmd"
+            app:argType="ghoudan.anfaSolution.com.app_models.PurchaseOrder"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/stockFragment"
+        android:name="chari.groupewib.com.ui.command.items.StockFragment"
+        android:label="StockFragment" />
+    <fragment
+        android:id="@+id/createArticle"
+        android:name="chari.groupewib.com.ui.command.items.CreateArticle"
+        android:label="CreateArticle" >
+        <argument
+            android:name="article"
+            app:argType="chari.groupewib.com.app_models.Item"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+
+</navigation>

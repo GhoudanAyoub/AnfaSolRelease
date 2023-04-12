@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="142dp"
+    app:cardBackgroundColor="@color/content_lightOrange"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp"
+    tools:parentTag="androidx.cardview.widget.CardView">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/content_lightOrange"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@+id/promotion_article_image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/product_promotion_title"
+                style="@style/titleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Huile HUILOR, 5 litres"
+                android:maxLines="1"
+                android:textColor="@color/content_dark" />
+
+            <TextView
+                android:id="@+id/product_packaginf_details"
+                style="@style/labelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:maxLines="2"
+                android:text="Carton (12 pcs x 0.87 DH)"
+                android:textColor="@color/content_dark" />
+
+            <LinearLayout
+                android:id="@+id/promotion_prices_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/promotion_article_price"
+                    style="@style/titleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="77.00 DHs"
+                    android:textColor="@color/content_dark" />
+
+                <TextView
+                    android:id="@+id/promotion_article_old_price"
+                    style="@style/labelSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="77.00 DHs"
+                    android:textColor="@color/content_dark" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/promotion_buy_btn"
+                style="@style/Widget.Chari.Button.BtnAction.Small"
+                android:layout_marginTop="12dp"
+                android:text="@string/promotion_buy_btn_label" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/promotion_article_image"
+            android:layout_width="114dp"
+            android:layout_height="114dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/transparent"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+    </RelativeLayout>
+
+</merge>

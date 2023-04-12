@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:background="@color/content_white"
+    tools:context="ghoudan.anfaSolution.com.chari.ui.account.AccountInfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/infos_perso"
+            style="@style/titleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/infos_perso"
+            android:textColor="@color/content_dark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_text_view_container"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/client_name"
+                style="@style/bodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxl_8"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/spacing_s"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:padding="@dimen/spacing_m"
+                android:textAlignment="viewStart"
+                android:textColor="@color/content_dark"
+                app:drawableStartCompat="@drawable/ic_person_outlined"
+                tools:hint="GHOUDAN" />
+
+            <View
+                android:id="@+id/separator1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/content_softGrey" />
+
+            <TextView
+                android:id="@+id/phone_client"
+                style="@style/bodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxl_8"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/spacing_s"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:padding="@dimen/spacing_m"
+                android:textAlignment="viewStart"
+                android:textColor="@color/content_dark"
+                app:drawableStartCompat="@drawable/ic_call_outlined"
+                tools:hint="06 84 12 12 12" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/info_business"
+            style="@style/titleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_l"
+            android:text="@string/info_business"
+            android:textColor="@color/content_dark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:background="@drawable/bg_text_view_container"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/type_client"
+                style="@style/bodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxl_8"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/spacing_s"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:padding="@dimen/spacing_m"
+                android:textAlignment="viewStart"
+                android:textColor="@color/content_dark"
+                app:drawableStartCompat="@drawable/ic_person_outlined"
+                tools:hint="Épicier" />
+
+            <View
+                android:id="@+id/separator2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/content_softGrey" />
+
+            <TextView
+                android:id="@+id/city_client"
+                style="@style/bodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxl_8"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/spacing_s"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:padding="@dimen/spacing_m"
+                android:textAlignment="viewStart"
+                android:textColor="@color/content_dark"
+                app:drawableStartCompat="@drawable/ic_emoji_flags"
+                tools:hint="Casablanca" />
+
+            <View
+                android:id="@+id/separator3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/content_softGrey" />
+
+            <TextView
+                android:id="@+id/sector_client"
+                style="@style/bodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxl_8"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/spacing_s"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:padding="@dimen/spacing_m"
+                android:textAlignment="viewStart"
+                android:textColor="@color/content_dark"
+                app:drawableStartCompat="@drawable/ic_location_automation"
+                tools:hint="14" />
+
+            <View
+                android:id="@+id/separator4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/content_softGrey" />
+
+            <TextView
+                android:id="@+id/address_client"
+                style="@style/bodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxl_8"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/spacing_s"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:padding="@dimen/spacing_m"
+                android:textAlignment="viewStart"
+                android:textColor="@color/content_dark"
+                app:drawableStartCompat="@drawable/ic_pin_drop"
+                tools:hint="Boulevard Abdellatif Ben Kaddour, Racine" />
+
+            <View
+                android:id="@+id/separator5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/content_softGrey" />
+
+            <TextView
+                android:id="@+id/postal_code_client"
+                style="@style/bodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxl_8"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/spacing_s"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:padding="@dimen/spacing_m"
+                android:textAlignment="viewStart"
+                android:textColor="@color/content_dark"
+                app:drawableStartCompat="@drawable/ic_pages"
+                tools:hint="20050" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/disconnect_btn"
+            android:layout_marginTop="@dimen/spacing_m"
+            android:layout_marginBottom="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/content_white"
+            android:textAppearance="@style/titleSmall"
+            android:textColor="@color/brand_secondary"
+            android:text="@string/disconnect"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

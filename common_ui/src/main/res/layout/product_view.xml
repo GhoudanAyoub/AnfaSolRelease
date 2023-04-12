@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="wrap_content"
+    tools:layout_width="@dimen/product_view_item_width"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="@dimen/product_view_item_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/product_view_item_width"
+                android:layout_height="@dimen/product_view_item_width"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_rounded_lightgrey_stroke">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/product_img"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearance="@style/ProductRoundedImage"
+                    app:strokeColor="@null"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/product_prices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/product_price"
+                    style="@style/bodySmall"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/content_dark"
+                    tools:text="126dh" />
+
+                <TextView
+                    android:id="@+id/product_old_price"
+                    style="@style/labelTiny"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/content_darkGrey"
+                    tools:text="126dh" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/product_title"
+                style="@style/labelMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/content_dark"
+                tools:text="Nom Produit" />
+
+            <TextView
+                android:id="@+id/product_packaging_details"
+                style="@style/labelTiny"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/content_darkGrey"
+                android:visibility="gone"
+                tools:text="Carton (12 pcs x 0.87 DH)" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/product_discount_tag"
+            style="@style/labelTiny"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_discount_badge"
+            android:layoutDirection="ltr"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="4dp"
+            android:text="10%"
+            android:textColor="@color/brand_primary" />
+
+        <LinearLayout
+            android:id="@+id/qty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="2dp"
+            android:elevation="4dp"
+            android:layoutDirection="ltr"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/add_qty_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="2dp"
+                android:background="@drawable/bg_btn_qty_bordered_elevator"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:focusable="true"
+                android:padding="12dp"
+                android:src="@drawable/ic_add"
+                android:stateListAnimator="@null" />
+
+            <LinearLayout
+                android:id="@+id/qty_details"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/qty_article"
+                    style="@style/bodyLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:textColor="@color/content_dark" />
+
+                <ImageView
+                    android:id="@+id/remove_qty_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/bg_btn_qty_bordered_elevator"
+                    android:contentDescription="@null"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_remove"
+                    android:stateListAnimator="@null" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</merge>
+
+
+

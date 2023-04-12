@@ -1,0 +1,176 @@
+plugins {
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+
+}
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+
+    defaultConfig {
+        applicationId "ghoudan.anfaSolution.com.chari"
+        minSdkVersion rootProject.ext.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
+        versionCode appVersionCode.toInteger()
+        versionName appVersionName
+
+        Properties properties = new Properties()
+
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        manifestPlaceholders = [MAPS_API_KEY: "${properties.getProperty('MAPS_API_KEY')}"]
+    }
+
+    signingConfigs {
+        config {
+            storeFile file("../Apk_Key/chari_ma.jks")
+            storePassword 'charima123456@ma'
+            keyAlias 'Chari_ma'
+            keyPassword 'charima123456@ma'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = true
+            shrinkResources = true
+            debuggable = false
+            signingConfig = signingConfigs.config
+            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexKeepProguard = file('multidex-config.pro')
+        }
+        preprod {
+            debuggable = true
+            signingConfig signingConfigs.config
+            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexKeepProguard = file('multidex-config.pro')
+        }
+        debug {
+            debuggable = true
+            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexKeepProguard = file('multidex-config.pro')
+            ext.enableCrashlytics = false
+
+        }
+    }
+
+    flavorDimensions "chari.co"
+    productFlavors{
+        chariPrep {
+            applicationId "ghoudan.anfaSolution.com"
+            applicationIdSuffix ".preparateur"
+        }
+    }
+    namespace 'ghoudan.anfaSolution.com'
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+
+dependencies {
+    implementation project(":common_ui")
+    implementation project(":networking")
+    implementation project(":utils")
+    implementation project(':app_models')
+
+    //find-out dependencies in dependencies.gradle
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.reflect
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.appcompat
+    implementation deps.material
+    implementation deps.androidx.constraintlayout
+    implementation deps.androidx.preference
+    implementation deps.one_signal
+    implementation deps.androidx.startup_runtime
+    implementation deps.androidx.work_manager
+    implementation deps.androidx.hilt_work
+    implementation deps.google.play_services_auth
+    implementation deps.google.play_services_auth_api_phone
+
+
+    //hilt
+    implementation deps.hilt.hilt_android
+    implementation deps.androidx.legacy
+    kapt deps.hilt.hilt_compiler
+
+
+    //navigation
+    implementation deps.androidx.navigation.navigation_fragment
+    implementation deps.androidx.navigation.navigation_ui
+
+    //ktx
+    implementation deps.androidx.fragment
+
+    //hilt
+    implementation deps.hilt.hilt_android
+    kapt deps.hilt.hilt_compiler
+
+    //networking
+    implementation deps.networking.retrofit
+    implementation deps.networking.logging_interceptor
+    implementation deps.networking.ok2curl
+
+    //logs
+    implementation deps.timber
+
+    //serialization
+    implementation deps.serialization.kotlinx_serialization
+    implementation deps.serialization.kotlinx_serialization_converter
+
+    //coroutines
+    implementation deps.couroutines
+
+    //epoxy
+    implementation deps.epoxy.core
+    kapt deps.epoxy.processor
+
+    //glide
+    implementation deps.glide.glide
+    kapt deps.glide.processor
+
+    implementation deps.androidx.lifecycle.livedata_ktx
+    implementation deps.androidx.recycler_view
+    implementation deps.lottie
+    implementation deps.datePicker
+    implementation platform(deps.firebase.bom)
+    implementation deps.firebase.analytics_ktx
+    implementation deps.firebase.config_ktx
+    implementation deps.firebase.dynamic_links
+    implementation deps.firebase.crashlytics
+
+    implementation deps.analytics.apps_flyer
+
+    //events tracking
+    implementation deps.analytics.amplitude
+    implementation deps.analytics.segment
+    implementation deps.analytics.segment_amplitude_integration
+
+    implementation deps.circle_indicator
+
+    implementation deps.maps.maps
+    implementation deps.maps.location
+
+    implementation deps.adjust
+
+    implementation deps.google_flex_box
+
+
+    testImplementation deps.junit
+    androidTestImplementation deps.androidx.junit
+    androidTestImplementation deps.androidx.espresso
+
+    //pageIndicator
+    implementation deps.pagerIndicator
+
+    implementation deps.libphonenumber
+}

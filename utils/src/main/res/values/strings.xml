@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cmd_status_1">Enregistrées</string>
+    <string name="cmd_status_2">En cours</string>
+    <string name="cmd_status_3">dispatchée</string>
+    <string name="cmd_status_4">Facturée</string>
+    <string name="cmd_status_5">Livrées</string>
+    <string name="cmd_status_6">Retournées</string>
+    <string name="cmd_status_7">Annulées</string>
+    <string name="cmd_status_8">Validées</string>
+
+</resources>
