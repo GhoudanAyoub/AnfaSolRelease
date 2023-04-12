@@ -1,0 +1,151 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Chari" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/content_white</item>
+        <item name="colorPrimaryDark">@color/content_dark</item>
+        <item name="colorAccent">@color/content_dark</item>
+        <item name="drawerArrowStyle">@style/customNavigationBackIcon</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/content_ultraLightGrey</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="buttonStyle">@style/Widget.Chari.Button</item>
+        <item name="android:windowBackground">@color/content_white</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="q">true</item>
+    </style>
+
+    <style name="MainNavigation" parent="Widget.Design.BottomNavigationView">
+        <item name="itemBackground">@color/content_white</item>
+        <item name="itemIconTint">@color/nav_item_icon_tint</item>
+        <item name="itemTextColor">@color/nav_item_text_color</item>
+        <item name="android:fontFamily">@font/omnesregular</item>
+        <item name="android:textSize">11sp</item>
+        <item name="lineHeight">16dp</item>
+    </style>
+
+    <style name="FontButtonTBlack">
+        <item name="android:textColor">@color/accent_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:editTextColor">@color/accent_color</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="closeIcon">@drawable/ic_close_icon</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColorHint">@color/coolGrey</item>
+    </style>
+
+    <style name="TabsToolBar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:elevation">@dimen/design_appbar_elevation</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="TabLayoutTheme">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="InfoTextTheme">
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:fontFamily">@font/omnes_medium</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/content_darkGrey</item>
+        <item name="android:textColorHint">@color/content_darkGrey</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:background">@drawable/edittext_border</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="circleImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="roundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15%</item>
+    </style>
+
+    <style name="NumberPickerTheme" parent="Theme.Chari">
+        <item name="colorControlNormal">@color/coolGrey</item>
+    </style>
+
+    <style name="CustomMaterialDialogRounded" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.Rounded</item>
+    </style>
+
+    <style name="BottomAlertDialog" parent="CustomMaterialDialogRounded">
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+    <style name="MaterialAlertDialog.Rounded" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="shapeAppearance">@style/ShapeAppearance.MaterialAlertDialog.Rounded</item>
+    </style>
+
+    <style name="ShapeAppearance.MaterialAlertDialog.Rounded" parent="">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="customNavigationBackIcon" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/brand_primary</item>
+        <item name="srcCompat">@drawable/ic_arrow_back</item>
+    </style>
+
+    <style name="InputFieldBase">
+        <item name="android:background">@color/transparent</item>
+        <item name="singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="maxLines">1</item>
+    </style>
+
+
+    <!-- NEW STYLES -->
+    <style name="ProductRoundedImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="AllProductsButtonShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="OtpFieldInput" parent="InputFieldBase">
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/omnesregular</item>
+        <item name="android:textSize">22sp</item>
+        <item name="lineHeight">28dp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/content_dark</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:imeOptions">actionNext</item>
+    </style>
+
+    <style name="ChariTextField" parent="InputFieldBase">
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/omnesregular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24dp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">@color/content_dark</item>
+        <item name="android:textColorHint">@color/content_darkGrey</item>
+        <item name="android:imeOptions">actionNext</item>
+    </style>
+
+    <style name="LoaderAlertDialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="windowMinWidthMajor">0dp</item>
+        <item name="windowMinWidthMinor">0dp</item>
+    </style>
+</resources>

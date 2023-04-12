@@ -1,0 +1,137 @@
+<resources>
+    <string name="app_name">Anfa-Solutions</string>
+
+    <string name="main_nav_home_title">Accueil</string>
+    <string name="main_nav_selections_title">Catégories</string>
+    <string name="main_nav_brands_title">Marques</string>
+    <string name="main_nav_orders_title">Commandes</string>
+    <string name="main_nav_account_title">Mon Compte</string>
+    <string name="bienvenue_chari">Bienvenue sur Chari</string>
+    <string name="main_nav_cart_title">Panier</string>
+
+    <string name="logo_description">Logo Chari</string>
+    <string name="connecter">Se connecter</string>
+    <string name="signup">Créer un compte</string>
+    <string name="confirm_login">Se connecter</string>
+    <string name="img_content_desc">Image de l\'app</string>
+    <string name="phone_number_hint">Numéro de Télephone</string>
+    <string name="pwd">Mot de passe</string>
+    <string name="lang_ar_btn" translatable="false">العربية</string>
+    <string name="lang_fr_btn" translatable="false">Français</string>
+    <string name="type_your_phone">Numéro de téléphone</string>
+    <string name="type_your_pwd">mot de passe</string>
+    <string name="type_your_last_name">Nom</string>
+    <string name="type_your_first_name">Nom d\'utilisateur</string>
+    <string name="hint_last_name">Écrivez votre Nom</string>
+    <string name="hint_first_name">Écrivez votre Prénom</string>
+    <string name="hint_name_client">Écrivez le Nom et Prénom</string>
+    <string name="auth">Authentification</string>
+    <string name="step1">Etape 1</string>
+    <string name="step2">Etape 2</string>
+    <string name="step3">Inscription\n finalisée</string>
+    <string name="next">Suivant</string>
+    <string name="enter_tel">Veuillez renseigner correctement votre numéro de téléphone mobile</string>
+    <string name="enter_field">Ce champ est obligatoire</string>
+    <string name="congrats_client">Félicitations %1$s !</string>
+    <string name="signup_done_text">Ton inscription a bien été enregistrée. Tu seras contacté par un conseiller de notre service relation client sous 24h pour valider tes informations</string>
+    <string name="share_social_txt">En attendant, abonne-toi sur nos réseaux sociaux pour ne rater aucune promotion.</string>
+    <string name="brands_selection_btn">Confirmer la séléction</string>
+    <string name="searchview_bar_hint">Recherche des articles</string>
+    <string name="search_no_result">Il ne trouve actuellement aucun article</string>
+    <string name="response_error">Une erreur est survenue</string>
+    <string name="similar_products">Produits similaires</string>
+    <string name="see_more">Voir plus</string>
+    <string name="all_orders">Tous(%d)</string>
+    <string name="current_orders">En cours(%d) </string>
+    <string name="finished_orders">Livrées(%d)</string>
+    <string name="canceled_orders">Annulées(%d)</string>
+    <string name="returned_orders">Retournées (%d)</string>
+    <string name="order_again">Commander à nouveau </string>
+    <string name="name_article">%1$s</string>
+    <string name="price_article">%1$.2f Dh</string>
+    <string name="old_price_article">%1$.2f Dh</string>
+    <string name="short_desc_article">%1$s</string>
+    <string name="long_desc_article">%1$s</string>
+    <string name="qte_article">%1$d</string>
+    <string name="cart_fragment_title">Panier</string>
+    <string name="sub_total_title">Sous-total HT</string>
+    <string name="discount_title">Remise</string>
+    <string name="total_title">Total</string>
+    <string name="delivery_title">Livraison</string>
+    <string name="timbre_title">Timbre</string>
+    <string name="tva_title">TVA</string>
+    <string name="confirm_order_btn_title">Valider  la commande</string>
+    <string name="delete_order_btn_title">Supprimer la commande</string>
+    <string name="search_clients_label">Recherche Clients</string>
+    <string name="hint_search">Recherche…</string>
+    <string name="delivery_date_label">Date de livraison: </string>
+    <string name="payment_label">Paiement</string>
+    <string name="conflict_name_error">Un autre utilisateur a déjà modifié l\'enregistrement</string>
+    <string name="my_infos_txt">MES INFOS</string>
+    <string name="account_infos_fragment_title">Clients</string>
+    <string name="modify_infos">Modifier ces informations</string>
+    <string name="disconnect">Se déconnecter</string>
+    <string name="user_type">Épicier</string>
+    <string name="order_confirmed_label">Commande validée ! </string>
+    <string name="continue_shopping_label">Continuez votre shopping</string>
+
+    <string name="delivery_date_hint">Choisir une date</string>
+    <string name="free_delivery">Gratuite</string>
+    <string name="label_app_update">Il y a une nouvelle mise à jour de l\'application que vous pouvez télécharger</string>
+    <string name="default_cart_count">0</string>
+    <string name="add_to_cart_msg">Article ajouté au panier</string>
+    <string name="product_deleted_msg">Produit supprimé avec succès</string>
+    <string name="product_updated_msg">Produit modifié avec succès</string>
+    <string name="payment_mode_title">Choix du type de paiement</string>
+    <string name="payment_mode_label">Mode de paiment</string>
+    <string name="chari_money_title">Chari\nMoney</string>
+    <string name="chari_money_label">Chari Wallet</string>
+    <string name="cash_on_delivery_label">Paiment à\nla livraison</string>
+    <string name="available_balance">Solde disponible</string>
+    <string name="available_balance_after_validation">Solde disponible après cette opération</string>
+    <string name="wallet_label">Wallet</string>
+    <string name="brands_products_selection">Votre selection</string>
+    <string name="all_products_label">Tous les produits</string>
+    <string name="delivery_date_placeholder">%1$d-%2$d-%3$d</string>
+    <string name="cart_min_amount">le montant de la commande doit être supérieur à %1$d dh"</string>
+    <string name="type_your_name">Entrez votre nom</string>
+    <string name="hint_name">Écrivez le Nom et Prénom</string>
+    <string name="account_locked_msg">Votre compte est désactivé, veuillez contacter notre ambassadeur pour avoir plus d\informations</string>
+    <string name="account_waiting_confirmation_ms">Votre compte est désactivé, veuillez contacter notre ambassadeur pour avoir plus d\informations</string>
+    <string name="hint_client_last_name">Écrivez le Nom</string>
+    <string name="hint_client_first_name">Écrivez le Prénom</string>
+    <string name="hint_client_phone">0611223344</string>
+    <string name="hint_client_email">Écrivez l\'Email</string>
+    <string name="hint_client_location">Entrez la Localisation</string>
+    <string name="hint_client_country">Entrez le Pays</string>
+    <string name="hint_client_canal">Entrez le Canal</string>
+    <string name="hint_client_region">Entrez la région</string>
+    <string name="hint_client_sector">Entrez le Sécteur</string>
+    <string name="hint_client_address">Entrez l\'adresse</string>
+    <string name="choose_client_location">Choisir cette position</string>
+    <string name="client_location" translatable="false">%1$f / %2$f</string>
+    <string name="client_location_enable" translatable="false">Vous devez activer le GPS</string>
+    <string name="label_pick_from_phone">Sélectionnez une image du téléphone</string>
+    <string name="label_from_camera">Prendre une photo</string>
+    <string name="required_fields">Veuillez remlir les champs obligatoires</string>
+    <string name="required_image">Veillez remplir l\image</string>
+    <array name="countries">
+        <item>Maroc</item>
+    </array>
+    <string name="empty_cart_msg">Panier Vide</string>
+    <string name="user_registration_successs" translatable="false">Compte créé avec succès</string>
+    <string name="select_image" translatable="false">Veuillez séléctionner une image</string>
+    <string name="forget_password"><u>Mot de passe oublié ?</u></string>
+    <string name="share_product_msg">%1$s pense que cet article pourrait vous interesser ! Cliquez vite sur le lien pour le consulter sur Chari\n%2$s</string>
+    <string name="recent_search_queries_label">Recherches récentes:</string>
+
+    <string name="promotions_label">Promotions</string>
+
+    <array name="blocked" translatable="false">
+        <item>Invoice</item>
+        <item>Ship</item>
+        <item>ALL</item>
+    </array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

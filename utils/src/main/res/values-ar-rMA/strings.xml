@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cmd_status_1">مسجل</string>
+    <string name="cmd_status_2">جاري...</string>
+    <string name="cmd_status_3">مرسل</string>
+    <string name="cmd_status_4">مفوتر</string>
+    <string name="cmd_status_5">تم التوصيل</string>
+    <string name="cmd_status_6">تم إرجاع</string>
+    <string name="cmd_status_7">ألغيت</string>
+    <string name="cmd_status_8">مكتمل</string>
+</resources>

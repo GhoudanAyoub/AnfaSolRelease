@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_client_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_m"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/client_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/content_lightGrey"
+                android:scaleType="center"
+                android:src="@drawable/ic_person"
+                app:shapeAppearance="@style/circleImageView" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_s"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/client_name"
+                    style="@style/titleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/content_dark"
+                    tools:text="Mohammed bennis" />
+
+                <TextView
+                    android:id="@+id/client_phone"
+                    style="@style/bodySmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/content_darkGrey"
+                    tools:text="0603511867" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/client_blocked"
+                style="@style/titleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:textColor="@color/status_error"
+                android:visibility="gone"
+                android:text="Blocked" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/sep"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/ll_client_details"
+            android:layout_marginStart="68dp"
+            android:layout_marginEnd="@dimen/spacing_m"
+            android:background="@color/content_lightGrey" />
+    </RelativeLayout>
+</merge>

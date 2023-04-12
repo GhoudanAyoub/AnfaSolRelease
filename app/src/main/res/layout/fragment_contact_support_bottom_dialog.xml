@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".chari.ui.onboarding.bottomDialogs.ContactSupportBottomDialog">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/content_ultraLightGrey"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_m"
+        android:paddingTop="@dimen/spacing_xs"
+        android:paddingEnd="@dimen/spacing_m"
+        android:paddingBottom="@dimen/spacing_xs">
+
+        <View
+            android:layout_width="@dimen/spacing_xxl_5"
+            android:layout_height="4dp"
+            android:background="@color/content_lightGrey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                style="@style/titleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/contactez_le_support"
+                android:textColor="@color/content_dark" />
+
+            <ImageView
+                android:id="@+id/cancle_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:minWidth="32dp"
+                android:layout_weight="0.2"
+                android:src="@drawable/ic_cancel_grey" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/bodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:layout_marginTop="@dimen/spacing_xl"
+        android:layout_marginEnd="@dimen/spacing_m"
+        android:layout_weight="1"
+        android:text="@string/contact_support_description"
+        android:textColor="@color/content_dark" />
+
+    <TextView
+        android:id="@+id/callBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:height="48dp"
+        style="@style/titleSmall"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:layout_marginTop="@dimen/spacing_xl"
+        android:background="@drawable/bg_appel_buttons"
+        android:layout_marginEnd="@dimen/spacing_m"
+        android:drawablePadding="@dimen/spacing_m"
+        android:paddingStart="@dimen/spacing_m"
+        android:paddingTop="@dimen/spacing_s"
+        android:paddingEnd="@dimen/spacing_m"
+        android:paddingBottom="@dimen/spacing_s"
+        android:drawableStart="@drawable/ic_mdi_phone_in_talk"
+        android:textAlignment="viewStart"
+        android:text="@string/call_centre" />
+
+    <TextView
+        android:id="@+id/wtspBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:height="48dp"
+        style="@style/titleSmall"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:layout_marginTop="@dimen/spacing_s"
+        android:layout_marginEnd="@dimen/spacing_m"
+        android:background="@drawable/bg_appel_buttons"
+        android:layout_marginBottom="@dimen/spacing_xxl_2"
+        android:drawablePadding="@dimen/spacing_m"
+        android:paddingStart="@dimen/spacing_m"
+        android:paddingTop="@dimen/spacing_s"
+        android:paddingEnd="@dimen/spacing_m"
+        android:paddingBottom="@dimen/spacing_s"
+        android:drawableStart="@drawable/ic_mdi_whatsapp"
+        android:textAlignment="viewStart"
+        android:text="@string/call_wtsp" />
+</LinearLayout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.Chari.TextView" parent="Widget.AppCompat.TextView">
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.DisplayLarge" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesbold</item>
+        <item name="android:textAppearance">@font/omnesbold</item>
+        <item name="android:textSize">57sp</item>
+        <item name="lineHeight">64dp</item>
+        <item name="android:letterSpacing">-0.25</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.DisplayMedium" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesbold</item>
+        <item name="android:textAppearance">@font/omnesbold</item>
+        <item name="android:textSize">45sp</item>
+        <item name="lineHeight">52dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.DisplaySmall" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesbold</item>
+        <item name="android:textAppearance">@font/omnesbold</item>
+        <item name="android:textSize">36sp</item>
+        <item name="lineHeight">44dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.H1" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesbold</item>
+        <item name="android:textAppearance">@font/omnesbold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="lineHeight">40dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.H2" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesbold</item>
+        <item name="android:textAppearance">@font/omnesbold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="lineHeight">36dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.H3" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesbold</item>
+        <item name="android:textAppearance">@font/omnesbold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">32dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.TitleLarge" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesmedium</item>
+        <item name="android:textAppearance">@font/omnesmedium</item>
+        <item name="android:textSize">22sp</item>
+        <item name="lineHeight">28dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.TitleMedium" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnessemibold</item>
+        <item name="android:textAppearance">@font/omnessemibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.TitleSmall" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnessemibold</item>
+        <item name="android:textAppearance">@font/omnessemibold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.LabelLarge" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesmedium</item>
+        <item name="android:textAppearance">@font/omnesmedium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.labelMedium" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesmedium</item>
+        <item name="android:textAppearance">@font/omnesmedium</item>
+        <item name="android:textSize">13sp</item>
+        <item name="lineHeight">16dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.LabelRegular" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesmedium</item>
+        <item name="android:textAppearance">@font/omnesmedium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.LabelSmall" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesregular</item>
+        <item name="android:textAppearance">@font/omnesregular</item>
+        <item name="android:textSize">11sp</item>
+        <item name="lineHeight">16dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.LabelTiny" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omneslight</item>
+        <item name="android:textAppearance">@font/omneslight</item>
+        <item name="android:textSize">10sp</item>
+        <item name="lineHeight">14dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.BodyLarge" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesregular</item>
+        <item name="android:textAppearance">@font/omnesregular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.BodyMedium" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesregular</item>
+        <item name="android:textAppearance">@font/omnesregular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="Widget.Chari.TextView.bodySmall" parent="Widget.Chari.TextView">
+        <item name="android:fontFamily">@font/omnesregular</item>
+        <item name="android:textAppearance">@font/omnesregular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16dp</item>
+    </style>
+</resources>

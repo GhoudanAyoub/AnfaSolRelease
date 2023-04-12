@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_quick_buy">Achat Rapide</string>
+    <string name="qte_label">Quantité: %1$d</string>
+    <string name="price">%1$.2f </string>
+    <string name="order_number">ID: %1$d</string>
+    <string name="saved_price">%1$.2f economisé</string>
+    <string name="order_status">Commande</string>
+    <string name="order_status_value">%1$s</string>
+    <string name="order_date">%1$s</string>
+    <string name="order_price_txt">Montant total</string>
+    <string name="order_img_content_desc">Image de la commande</string>
+    <string name="order_num_lines">%s </string>
+    <string name="add_to_cart">Ajouter au panier</string>
+    <string name="add_client_label">Ajouter client</string>
+    <string name="sub_total_txt">Sous-total</string>
+    <string name="delivery_txt">Livraison</string>
+    <string name="tva_txt">Timbre / TVA</string>
+    <string name="total_txt">TOTAL</string>
+    <string name="reorder">Repasser cette commande</string>
+    <string name="infos_perso">Informations personnelles</string>
+    <string name="info_business">Informations sur le point de vente</string>
+    <string name="delivery_date_popup_cancel">Retour</string>
+    <string name="delivery_date_popup_validate">Choisir la date</string>
+    <string name="dialog_error_title">Important</string>
+    <string name="incorrect_credentials">Les informations sont incorrectes</string>
+    <string name="account_not_found">Ce compte ou numéro n\'existe pas</string>
+    <string name="account_not_validated">Ce compte est en attente d\'activation</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Retour</string>
+    <string name="btn_confirm">Confirmer</string>
+    <string name="generic_error">Erreur! Veuillez réessayer plus tard</string>
+    <string name="error_similar_404">Il ne trouve actuellement aucun produit similaire</string>
+    <string name="error_server_500">Erreur interne du serveur</string>
+    <string name="error_orders_204">Il ne trouve actuellement aucune commande</string>
+    <string name="error_stock_406">Stock insuffisant sur l\'article! Veuillez réessayer plus tard</string>
+    <string name="txt_see_more">Voir plus</string>
+    <string name="call_us">Appelez-nous</string>
+    <string name="call_us_whatsapp">Envoyez-nous un WhatsApp</string>
+    <string name="add_to_cart_msg">Produit ajouté avec succès</string>
+    <string name="product_deleted_msg">Produit supprimé avec succès</string>
+    <string name="product_updated_msg">Produit modifié avec succès</string>
+    <string name="disconnect_aldert_title">&#9888; Attention !</string>
+    <string name="disconnect_alert_msg">Vous êtes sur le point de vous déconnecter. êtes-vous sûr de vouloir continuer?</string>
+    <string name="unit_price">%1$.2f/%2$s</string>
+    <string name="no_data_msg">Pas de résultats</string>
+    <string name="qty_label">Quantité:</string>
+    <string name="dialog_quantity_title">Sélectionnez la quantité:</string>
+    <string name="qty_input_hint" translatable="false">1</string>
+    <string name="qty_error">La quantité saisie est supérieure à cell du stock disponible. Souhaitez-vous ajouter les %1$d produits en stock au panier?</string>
+    <string name="qty_invalid">La quantité saisie n\'est pas valide. Veuillez saisir une quantité supérieure ou égale à 1</string>
+    <string name="forget_pass_title">Appeler un agent ?</string>
+    <string name="forget_pass_body">Si vous avez oublié votre mot de passe, vous pouvez contacter un agent de notre call center afin de le récupérer</string>
+    <string name="call_agent_txt">Appeler un conseiller</string>
+    <string name="call_whatsapp_txt">Appeler un conseiller sur WhatsApp</string>
+    <string name="all_products_btn_label">Voir tous les produits</string>
+    <string name="all_products_label">Tous les produits</string>
+
+    <!-- TO VERIFY LATER -->
+    <string name="voir_resultats">Voir resultats</string>
+    <string name="hint_search">Recherche…</string>
+    <string name="bienvenue_chari">Bienvenue sur Chari</string>
+    <string name="onboarding_sms_code_title">Saisis le code reçu par SMS\nau %s</string>
+    <string name="onboarding_sms_resend_code_title">%s secondes</string>
+    <string name="onboarding_sms_code_info">Code non reçu ? <![CDATA[<font color=#EB6C43> Nous contacter</font>]]>\n</string>
+    <string name="onboarding_sms_resend_code_label">Renvoyer le code</string>
+    <string name="onboarding_phone_number_loader_label">Envoie de SMS…</string>
+    <string name="onboarding_loader_label">Chargment…</string>
+    <string name="valider">Valider</string>
+    <string name="contact_support_msg">مرحبا خدمة الزبائن كارني!</string>
+    <string name="onboarding_add_phone_number_and_name">Saisis ton numéro de téléphone et ton nom</string>
+    <string name="congrats_client2">%s, nous sommes ravis de te revoir parmi nous !</string>
+    <string name="welcome_description">En validant ton inscription, tu confirmes avoir lu et accepté sans réserve nos  <font color='#EB6C43'> Conditions Générales d’Utilisation </font> </string>
+    <string name="add_phone_number">Saisis ton nom d\'utilisateur et ton mot de pass</string>
+    <string name="create_account_txt">Tu n’as pas encore de compte \n <font color='#EB6C43'>S’inscrire</font></string>
+    <string name="contactez_le_support">Nous-contacter</string>
+    <string name="contact_support_description">Un conseiller de notre service relation client sera ravi de traiter ta demande</string>
+    <string name="call_centre">Appeler un conseiller</string>
+    <string name="call_wtsp">Echanger sur WhatsApp</string>
+    <string name="switch_to_french" translatable="false">Français</string>
+    <string name="switch_to_arabic" translatable="false">العربية</string>
+    <string name="slogan">Grâce à Chari, achetez votre marchandise en un clic</string>
+
+    <string name="besoin_d_aide">Fournisseurs</string>
+    <string name="Complaints">Commande d’achat</string>
+    <string name="politique_de_confidentialit">Commande de vente</string>
+    <string name="cgu">Articles</string>
+    <string name="share_app">Stock d’article</string>
+    <string name="about_version">Version : %s</string>
+    <string name="share_app_text" />
+    <string name="unites">Unités</string>
+    <string name="unite">unité</string>
+    <string name="sold_package_description">Vendu au carton</string>
+    <string name="sold_package_units">Carton = 12 Unités</string>
+    <string name="sold_package_price_unit">15DHs / Unité</string>
+    <string name="discount_percent" translatable="false">%1$d%%</string>
+    <string name="empty_card">Ton panier est vide</string>
+    <string name="empty_card_description">Il faut ajouter des produits à ton panier</string>
+    <string name="show_product">Voir tous les produits</string>
+    <string name="commande_confirmed">Commande confirmée</string>
+    <string name="commande_confirmed_description">Paiement à la livraison de la commande</string>
+    <string name="my_cart_products">Mon panier (%d articles)</string>
+    <string name="my_cart_product">Mon panier (1 article)</string>
+    <string name="my_cart_product_empty">Mon panier (0)</string>
+
+    <string name="promotion_buy_btn_label" translatable="false">Acheter</string>
+    <string name="promotions_label">Promotions</string>
+    <string name="empty_cmd_title">Pas des commandes %s !</string>
+    <string name="empty_cmd_description">paragraph ici</string>
+    <string name="order_again">Commander a nouveau</string>
+    <string name="multiple_articles_label">Articles: </string>
+    <string name="single_article_label">Articles: 1</string>
+    <string name="my_cmd_products">Commande %1$s (%2$d articles)</string>
+    <string name="my_cmd_product">Commande %s (1 article)</string>
+    <string name="support_message">Contacte nous à tout moment si tu as besoin d’aide pour utiliser l’app, si tu souhaites signaler un bug ou si tu veux nous suggérer une nouvelle fonctionnalité.</string>
+    <string name="btn_whtsp_rappel">Whatsapp</string>
+    <string name="btn_call_rappel">Appeler</string>
+    <string name="remove_from_cart_msg">Article supprimé du panier</string>
+    <string name="confirm_order">Veux-tu confirmer cette demande ?</string>
+    <string name="confirm_my_order">Confirmer ma commande</string>
+    <string name="qte">Quantité: %s</string>
+
+    <string name="deleteLine_alert_msg" translatable="false">Vous êtes sur le point de supprimer une line.\n êtes-vous sûr de vouloir continuer?</string>
+    <string name="deleteSalesHeader_alert_msg" translatable="false">Vous êtes sur le point de supprimer une commande de vente .\n êtes-vous sûr de vouloir continuer?</string>
+    <string name="deletePurchaseHeader_alert_msg" translatable="false">Vous êtes sur le point de supprimer une commande d\'achat.\n êtes-vous sûr de vouloir continuer?</string>
+    <string name="deleteClient_alert_msg" translatable="false">Vous êtes sur le point de de supprimer un client.\n êtes-vous sûr de vouloir continuer?</string>
+    <string name="deleteSupplier_alert_msg" translatable="false">Vous êtes sur le point de supprimer un fournisseur.\n êtes-vous sûr de vouloir continuer?</string>
+</resources>

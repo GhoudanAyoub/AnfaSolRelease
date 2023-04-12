@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="wrap_content"
+    tools:layout_width="match_parent">
+
+    <LinearLayout
+        android:id="@+id/product_order_view_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/spacing_s"
+        android:paddingTop="@dimen/spacing_xs"
+        android:paddingEnd="@dimen/spacing_m"
+        android:paddingBottom="@dimen/spacing_xs">
+
+        <FrameLayout
+            android:layout_width="84dp"
+            android:layout_height="88dp"
+            android:background="@drawable/bg_rounded_lightgrey_stroke"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/product_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_xs">
+
+            <LinearLayout
+                android:id="@+id/product_name_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/product_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/labelMedium"
+                    android:maxLines="1"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/content_dark"
+                    tools:text="Product Name" />
+
+                <ImageButton
+                    android:id="@+id/product_delete_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_cancel_grey"
+                    android:contentDescription="@null" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/product_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/labelSmall"
+                android:maxLines="1"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_name_container"
+                tools:text="PLorem ipsum dolor sit amet" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_description">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_card_view_date_selector"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layoutDirection="ltr"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:id="@+id/product_qte_minus_btn"
+                        android:layout_width="@dimen/spacing_xxl_2"
+                        android:layout_height="@dimen/spacing_xxl_2"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_minus" />
+
+                    <TextView
+                        android:id="@+id/product_qte"
+                        style="@style/bodyLarge"
+                        android:layout_width="32dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        android:layout_marginEnd="@dimen/spacing_xs"
+                        android:gravity="center"
+                        android:textColor="@color/content_dark"
+                        tools:text="10" />
+
+                    <ImageView
+                        android:id="@+id/product_qte_plus"
+                        android:layout_width="@dimen/spacing_xxl_2"
+                        android:layout_height="@dimen/spacing_xxl_2"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_plus" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/product_price"
+                    style="@style/labelLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/content_dark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_old_price"
+                    tools:text="120 Dh" />
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</merge>

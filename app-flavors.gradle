@@ -1,0 +1,8 @@
+android {
+    flavorDimensions "chari.co"
+    productFlavors {
+        chariPrep {
+            dimension "chari.co"
+        }
+    }
+}

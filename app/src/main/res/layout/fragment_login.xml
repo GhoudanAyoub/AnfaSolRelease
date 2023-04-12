@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingStart="@dimen/spacing_l"
+    android:paddingEnd="@dimen/spacing_l"
+    android:paddingBottom="@dimen/spacing_xs"
+    tools:context="ghoudan.anfaSolution.com.chari.ui.login.LoginFragment">
+
+    <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_connect"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/spacing_xs"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/welcome_title"
+                style="@style/labelLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="@dimen/spacing_xxl_2"
+                android:layout_marginEnd="56dp"
+                android:text="@string/add_phone_number"
+                android:textAlignment="center"
+                android:textColor="@color/brand_hover" />
+
+            <ghoudan.anfaSolution.com.common_ui.inputFields.AnfaTextField
+                android:id="@+id/phone_val"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/welcome_title"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="100dp" />
+            <ghoudan.anfaSolution.com.common_ui.inputFields.AnfaTextField
+                android:id="@+id/passowrd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phone_val"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_connect"
+        style="@style/Widget.Chari.Button.BtnPrimary.Large"
+        android:layout_marginBottom="@dimen/spacing_l"
+        android:layout_alignParentBottom="true"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="@string/next" />
+
+</RelativeLayout>

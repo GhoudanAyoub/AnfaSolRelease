@@ -1,0 +1,22 @@
+apply plugin: 'kotlinx-serialization'
+
+android {
+    namespace 'ghoudan.anfaSolution.com.app_models'
+}
+
+dependencies {
+
+    implementation deps.kotlin.stdlib
+    implementation deps.androidx.core_ktx
+    implementation deps.serialization.kotlinx_serialization
+    implementation deps.serialization.kotlinx_serialization_converter
+
+    //logs
+    implementation deps.timber
+
+    testImplementation deps.junit
+    androidTestImplementation deps.androidx.junit
+    androidTestImplementation deps.androidx.espresso
+    implementation deps.room.room_runtime
+    implementation deps.room.room_ktx
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab_txt"
+    style="@style/labelLarge"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawablePadding="@dimen/spacing_xs"
+    android:textAlignment="center"
+    android:textColor="@color/tab_family_item_color_state_list"
+    app:drawableStartCompat="@drawable/ic_restaurant"
+    app:drawableTint="@color/tab_family_item_color_state_list"
+    tools:text="Alimentation">
+
+</TextView>

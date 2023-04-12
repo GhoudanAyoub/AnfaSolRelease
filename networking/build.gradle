@@ -1,0 +1,76 @@
+plugins {
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+android {
+
+    buildTypes {
+        release {
+            minifyEnabled = true
+            buildConfigField "String", "BASE_URL", "\"https://api.chari.co/api/\""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        preprod {
+            debuggable = true
+            buildConfigField "String", "BASE_URL", "\"https://preprod-api.chari.co/api/\""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable = true
+            buildConfigField "String", "BASE_URL", "\"https://dev-api.chari.co/api/\""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    libraryVariants.all { variant ->
+        println("Iterating variant: " + variant.getName())
+        switch (variant.getName()) {
+//          CHARI VARIANT
+            case "chariDebug":
+                buildConfigField "String", "BASE_URL", "\"https://dev-api.chari.co/api/\""
+                break
+            case "chariPreprod":
+                buildConfigField "String", "BASE_URL", "\"https://preprod-api.chari.co/api/\""
+                break
+            case "chariRelease":
+                buildConfigField "String", "BASE_URL", "\"https://api.chari.co/api/\""
+                break
+        }
+    }
+
+    namespace 'ghoudan.anfaSolution.com.networking'
+}
+
+dependencies {
+
+    implementation project(':app_models')
+    implementation project(':utils')
+
+    implementation deps.kotlin.stdlib
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.appcompat
+    implementation deps.material
+
+    implementation deps.hilt.hilt_android
+    implementation deps.hilt.hilt_compiler
+    implementation deps.networking.retrofit
+    implementation deps.networking.logging_interceptor
+    implementation deps.networking.ok2curl
+    implementation deps.serialization.kotlinx_serialization
+    implementation deps.serialization.kotlinx_serialization_converter
+    implementation deps.timber
+    implementation deps.couroutines
+
+    kapt deps.hilt.hilt_compiler
+
+    testImplementation deps.junit
+    androidTestImplementation deps.androidx.junit
+    androidTestImplementation deps.androidx.espresso
+
+    implementation deps.room.room_runtime
+    kapt deps.room.room_compiler
+    implementation deps.room.room_ktx
+    implementation deps.androidx.google_gson
+}

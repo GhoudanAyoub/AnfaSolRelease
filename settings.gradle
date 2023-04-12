@@ -1,0 +1,6 @@
+rootProject.name = "chari-epicier-android"
+include ':app'
+include ':networking'
+include ':utils'
+include ':common_ui'
+include ':app_models'

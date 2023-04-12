@@ -1,0 +1,39 @@
+plugins {
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'ghoudan.anfaSolution.com.utils'
+}
+
+dependencies {
+    implementation project(':app_models')
+
+    implementation deps.kotlin.stdlib
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.appcompat
+    implementation deps.material
+    implementation deps.androidx.preference
+
+    //events tracking
+    implementation deps.analytics.amplitude
+    implementation deps.analytics.segment
+    implementation deps.analytics.segment_amplitude_integration
+
+    //logs
+    implementation deps.timber
+
+    //di
+    implementation deps.hilt.hilt_android
+    implementation deps.hilt.hilt_compiler
+    kapt deps.hilt.hilt_compiler
+
+    //navigation
+    implementation deps.androidx.navigation.navigation_fragment
+    implementation deps.androidx.navigation.navigation_ui
+
+    testImplementation deps.junit
+    androidTestImplementation deps.androidx.junit
+    androidTestImplementation deps.androidx.espresso
+}

@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/btn_primary_bg_rounded"
+    android:backgroundTint="@color/white"
+    android:padding="@dimen/spacing_m"
+    app:behavior_saveFlags="peekHeight">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/requested_Total_Units"
+            style="@style/InfoTextTheme"
+            android:layout_weight="1"
+            android:autofillHints="@null"
+            android:hint="Unités"
+            android:textAlignment="center"
+            android:inputType="number" />
+
+
+        <EditText
+            android:id="@+id/requested_Total_Weight"
+            style="@style/InfoTextTheme"
+            android:layout_weight="1"
+            android:autofillHints="@null"
+            android:hint="Poids"
+            android:textAlignment="center"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/requested_Total_Parcel"
+            style="@style/InfoTextTheme"
+            android:layout_weight="1"
+            android:autofillHints="@null"
+            android:hint="colis "
+            android:textAlignment="center"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/confirm_order_btn"
+        style="@style/Widget.Chari.Button.BtnAction.Small"
+        android:layout_marginTop="12dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</LinearLayout>

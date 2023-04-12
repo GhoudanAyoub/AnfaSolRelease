@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/accent_color"
+        android:textSize="22sp"
+        android:textStyle="normal"
+        tools:text="@string/forget_pass_title" />
+
+    <TextView
+        android:id="@+id/msg_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_msg"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/poppins_regular"
+        android:textAlignment="center"
+        android:textColor="@color/accent_color"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        tools:text="@string/forget_pass_body" />
+
+    <View
+        android:id="@+id/separator_0"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/msg_body"
+        android:background="@color/light_grey" />
+
+    <TextView
+        android:id="@+id/call_agent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator_0"
+        android:layout_marginTop="12dp"
+        android:drawableStart="@drawable/ic_call_agent"
+        android:drawablePadding="12dp"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp"
+        android:text="@string/call_agent_txt"
+        android:textColor="@color/accent_color"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <View
+        android:id="@+id/separator_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/call_agent"
+        android:background="@color/light_grey" />
+
+    <TextView
+        android:id="@+id/call_whatsapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator_1"
+        android:layout_marginTop="12dp"
+        android:drawableStart="@drawable/ic_call_whatsapp"
+        android:drawablePadding="12dp"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp"
+        android:text="@string/call_whatsapp_txt"
+        android:textColor="@color/accent_color"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/separator_2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/call_whatsapp"
+        android:background="@color/light_grey" />
+
+</RelativeLayout>

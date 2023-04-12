@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/cart_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_xs"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginEnd="@dimen/spacing_xs"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/infos_perso"
+                                    style="@style/titleSmall"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="En tête d'achat"
+                                    android:textColor="@color/content_dark" />
+
+                                <ImageView
+                                    android:id="@+id/deleteHeader"
+                                    android:layout_width="32dp"
+                                    android:layout_height="28dp"
+                                    android:src="@drawable/ic_delete_forever" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/n_client"
+                                    style="@style/InfoTextTheme"
+                                    android:layout_weight="1"
+                                    android:autofillHints="@null"
+                                    android:hint="N° de fournisseur"
+                                    android:inputType="number" />
+
+                                <ImageView
+                                    android:id="@+id/search_client"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/ic_baseline_arrow_down" />
+
+                                <EditText
+                                    android:id="@+id/name_client"
+                                    style="@style/InfoTextTheme"
+                                    android:layout_weight="1"
+                                    android:autofillHints="@null"
+                                    android:hint="Nom du fournisseur"
+                                    android:inputType="text" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/phone_client"
+                                    style="@style/InfoTextTheme"
+                                    android:layout_weight="1"
+                                    android:autofillHints="@null"
+                                    android:hint="Contact"
+                                    android:inputType="number" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/expSupplier"
+                                    style="@style/InfoTextTheme"
+                                    android:layout_weight="1"
+                                    android:autofillHints="@null"
+                                    android:hint="N° d'expédition du fournisseur"
+                                    android:inputType="number" />
+                                <EditText
+                                    android:id="@+id/factureSupplier"
+                                    style="@style/InfoTextTheme"
+                                    android:layout_weight="1"
+                                    android:autofillHints="@null"
+                                    android:hint="N° de facture fournisseur"
+                                    android:inputType="text" />
+
+
+                            </LinearLayout>
+
+                            <TextView
+                                style="@style/labelSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_xs"
+                                android:text="Date de commande"
+                                android:textColor="@color/content_dark" />
+
+                            <TextView
+                                android:id="@+id/demandeDate"
+                                style="@style/InfoTextTheme"
+                                android:layout_weight="1"
+                                android:autofillHints="@null"
+                                android:hint="Date de commande" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/labelSmall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/spacing_xs"
+                                    android:text="Date de réception prévue"
+                                    android:textColor="@color/content_dark" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/requestedRecievedDate"
+                                    style="@style/InfoTextTheme"
+                                    android:layout_weight="1"
+                                    android:autofillHints="@null"
+                                    android:hint="Date de réception prévue" />
+
+                                <TextView
+                                    android:id="@+id/ExpectedRecievedDate"
+                                    style="@style/InfoTextTheme"
+                                    android:layout_weight="1"
+                                    android:autofillHints="@null"
+                                    android:hint="Date de réception demandée" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/promisReceivedDate"
+                                style="@style/InfoTextTheme"
+                                android:layout_weight="1"
+                                android:autofillHints="@null"
+                                android:hint="Date de réception promise" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/itemsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <Button
+                            android:id="@+id/addOrderLigne"
+                            style="@style/Widget.Chari.Button.BtnOutlined.Small"
+                            android:layout_marginTop="@dimen/spacing_s"
+                            android:text="Add ligne" />
+
+                        <TextView
+                            style="@style/titleSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_xs"
+                            android:layout_marginTop="@dimen/spacing_s"
+                            android:layout_marginEnd="@dimen/spacing_xs"
+                            android:text="Lignes d'achat"
+                            android:textColor="@color/content_dark" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/items_recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/spacing_xs"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginEnd="@dimen/spacing_xs"
+                            android:overScrollMode="never"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/cart_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/emptyCardImage"
+            android:layout_width="146dp"
+            android:layout_height="146dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_empty_cart" />
+
+        <TextView
+            android:id="@+id/emptyCartTitle"
+            style="@style/titleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            android:text="@string/empty_card"
+            android:textColor="@color/content_dark" />
+
+        <TextView
+            android:id="@+id/emptyCartDescription"
+            style="@style/bodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:text="@string/empty_card_description"
+            android:textAlignment="center"
+            android:textColor="@color/content_darkGrey" />
+
+        <Button
+            android:id="@+id/empty_cart_button"
+            style="@style/Widget.Chari.Button.BtnPrimary.Medium"
+            android:layout_marginTop="@dimen/spacing_xxl_2"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="@string/show_product"
+            android:textColor="@color/content_white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ambass_cart_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="146dp"
+            android:layout_height="146dp"
+            android:contentDescription="@null" />
+
+        <TextView
+            style="@style/titleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            android:text="choose_client"
+            android:textColor="@color/content_dark" />
+
+        <TextView
+            style="@style/bodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:text="@string/empty_cmd_description"
+            android:textAlignment="center"
+            android:textColor="@color/content_darkGrey" />
+
+        <Button
+            android:id="@+id/openClientList"
+            style="@style/Widget.Chari.Button.BtnPrimary.Medium"
+            android:layout_marginTop="@dimen/spacing_xxl_2"
+            android:layout_marginBottom="@dimen/spacing_m"
+            android:text="choose_client"
+            android:textColor="@color/content_white" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/content_softGrey"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBtnContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/bottomBtnContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_s"
+        android:background="@color/content_white"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_m"
+        android:paddingEnd="@dimen/spacing_m"
+        android:paddingBottom="@dimen/spacing_s"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xxs"
+            android:background="@drawable/bg_card_view_data"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_s"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="@dimen/spacing_s"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/bodySmall"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total Excl, VAT"
+                        android:textColor="@color/content_dark" />
+
+                    <TextView
+                        android:id="@+id/total_ex_vat_text"
+                        style="@style/labelRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/content_dark"
+                        tools:text="123 Dh" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/bodySmall"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total VAT"
+                        android:textColor="@color/content_dark" />
+
+                    <TextView
+                        android:id="@+id/total_vat_text"
+                        style="@style/labelRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/content_dark"
+                        tools:text="123 Dh" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/bodySmall"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total Incl, VAT"
+                        android:textColor="@color/content_dark" />
+
+                    <TextView
+                        android:id="@+id/total_inc_vat_text"
+                        style="@style/labelRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/content_dark"
+                        tools:text="123 Dh" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/confirm_order_btn"
+            style="@style/Widget.Chari.Button.BtnAction.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:enabled="false"
+            android:text="Save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

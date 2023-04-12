@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="wrap_content"
+    tools:layout_width="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:layout_marginEnd="@dimen/spacing_m"
+        android:background="@drawable/bg_card_view_data"
+        android:padding="@dimen/spacing_s">
+
+        <LinearLayout
+            android:id="@+id/ly_order_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ly_order_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xxs"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/spacing_l"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/order_counter"
+                    style="@style/titleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/order_date"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/anfa_green"
+                    android:textDirection="ltr" />
+                <ImageView
+                    android:id="@+id/btn_order"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_cancel_grey"
+                    android:tint="#475467"
+                    android:visibility="gone"
+                    tools:ignore="UseAppTint" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ly_price_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/spacing_xxs"
+                android:minHeight="@dimen/spacing_l"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/order_price_value"
+                    style="@style/labelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textAlignment="viewEnd"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/content_dark"
+                    tools:ignore="RtlCompat"
+                    tools:text="121456111111.99 Dh" />
+
+                <TextView
+                    android:id="@+id/order_num"
+                    style="@style/titleMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="viewEnd"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/content_dark"
+                    tools:ignore="RtlCompat"
+                    tools:text="121456111111.99 Dh" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_client_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xxs"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/spacing_l"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/client_name"
+                    style="@style/labelRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/order_date"
+                    android:textColor="@color/content_dark" />
+                <TextView
+                    android:id="@+id/client_ref"
+                    style="@style/labelRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="viewEnd"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlCompat"
+                    android:text="@string/order_num_lines"
+                    android:textColor="@color/content_dark" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_client_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xxs"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/spacing_l"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/client_num"
+                    style="@style/bodySmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/order_date"
+                    android:textColor="@color/content_dark" />
+                <TextView
+                    android:id="@+id/articles_size"
+                    style="@style/labelRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/content_dark" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_order_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xxs"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/spacing_l"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/order_date"
+                    style="@style/bodySmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/order_date"
+                    android:textAlignment="center"
+                    android:textColor="@color/content_dark" />
+                <TextView
+                    android:id="@+id/due_date"
+                    style="@style/bodySmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/content_dark" />
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</merge>
