@@ -33,7 +33,7 @@ ext {
     timber_version = '5.0.1'
     epoxy_version = '5.1.1'
     glide_version = '4.14.2'
-    lottie_version = '5.2.0'
+    lottie_version = '6.0.1'
     preference_version = '1.2.0'
     date_picker_version = '4.2.3'
     firebase_bom_version = '31.1.0'
