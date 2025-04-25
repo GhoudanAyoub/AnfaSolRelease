@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import chari.groupewib.com.common_ui.packing.PackingViewListener
 import chari.groupewib.com.networking.entity.PackingListEntity
 import chari.groupewib.com.ui.command.sales.packing.PackingAdapter
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ghoudan.anfaSolution.com.MainActivity
@@ -56,6 +57,8 @@ class PackingListBottomDialog(
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as? MainActivity)?.enableView(false)
         val modalBottomSheetBehavior = (this.dialog as BottomSheetDialog).behavior
+        modalBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+
         modalBottomSheetBehavior.isHideable = true
         modalBottomSheetBehavior.skipCollapsed = true
         setupRecyclerView()
@@ -103,6 +106,7 @@ class PackingListBottomDialog(
         binding.totalColis.text = resources.getString(R.string.total_colis, colis.toString())
         binding.totalPoids.text = resources.getString(R.string.total_poids, poids)
         binding.coliesInfoCntr.visibility = View.VISIBLE
+        binding.save.visibility = View.VISIBLE
         binding.save.isEnabled = colis > 0
     }
 }
