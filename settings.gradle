@@ -1,4 +1,4 @@
-rootProject.name = "chari-epicier-android"
+rootProject.name = "anfaSol-android"
 include ':app'
 include ':networking'
 include ':utils'

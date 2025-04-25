@@ -7,9 +7,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/save"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
         <LinearLayout
@@ -43,7 +47,6 @@
 
         </LinearLayout>
 
-
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_view"
             android:layout_width="match_parent"
@@ -59,9 +62,41 @@
             android:gravity="center_vertical"
             app:queryHint="@string/hint_search"
             android:minHeight="40dp"
+            android:focusable="false"
             android:theme="@style/SearchViewStyle"
             app:iconifiedByDefault="false"
             app:searchIcon="@drawable/ic_search" />
+
+
+        <LinearLayout
+            android:id="@+id/coliesInfoCntr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/spacing_s"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            android:animateLayoutChanges="true"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/totalColis"
+                style="@style/titleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/total_colis"
+                android:textColor="@color/content_dark" />
+            <TextView
+                android:id="@+id/totalPoids"
+                style="@style/titleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/total_poids"
+                android:textColor="@color/content_dark" />
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
@@ -91,4 +126,11 @@
         app:lottie_fileName="loader.json"
         app:lottie_loop="true" />
 
+    <Button
+        android:id="@+id/save"
+        style="@style/Widget.Chari.Button.BtnAction.Medium"
+        android:layout_marginBottom="@dimen/spacing_xs"
+        android:text="valider"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

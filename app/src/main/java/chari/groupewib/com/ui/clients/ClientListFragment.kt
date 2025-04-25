@@ -128,4 +128,9 @@ class ClientListFragment : Fragment(R.layout.fragment_list_client), ClientViewLi
     fun collapseAddContactBtn() {
         binding.addContactFabTitle.visibility = View.GONE
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (requireActivity() as? MainActivity)?.hideLoader()
+    }
 }

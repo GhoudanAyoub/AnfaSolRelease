@@ -8,14 +8,17 @@ import android.view.WindowManager
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import chari.groupewib.com.app_models.Item
 import chari.groupewib.com.common_ui.product.ItemViewListener
+import chari.groupewib.com.networking.entity.PackingListEntity
+import chari.groupewib.com.networking.entity.StockSaisieEntity
 import chari.groupewib.com.networking.request.SalesOrderHeaderResult
 import chari.groupewib.com.networking.request.UpdateSalesHeaderRequest
 import chari.groupewib.com.ui.clients.ClientListBottomDialog
+import chari.groupewib.com.ui.command.bottomDialogs.PackingListBottomDialog
+import chari.groupewib.com.ui.command.bottomDialogs.StockSaisieListBottomDialog
 import chari.groupewib.com.ui.command.bottomDialogs.UpdateItemDialog
 import chari.groupewib.com.ui.command.items.ItemListDialogFragment
 import chari.groupewib.com.ui.command.items.ItemsAdapter
@@ -46,7 +49,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
     private var postClientDate: String = ""
     private var dueClientDate: String = ""
     lateinit var binding: FragmentCreateSalesOrderBinding
-    private val fragmentViewModel by viewModels<CommandViewModel>()
+    private val fragmentViewModel by activityViewModels<CommandViewModel>()
     private val viewModel: ClientListViewModel by activityViewModels()
     private val itemsAdapter: ItemsAdapter by lazy {
         ItemsAdapter(this)
@@ -55,7 +58,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentCreateSalesOrderBinding.inflate(inflater, container, false)
         return binding.root
@@ -138,7 +141,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                 dueClientDate = it
             }
         }
-        binding.addOrderLigne.setOnClickListener { openItemList() }
+        binding.addOrderLigne.setOnClickListener { openStockSaisieList() }
         binding.deleteHeader.apply {
             isVisible = args.cmd != null
             setOnClickListener {
@@ -168,6 +171,77 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
             }
         }
         subscribe()
+    }
+
+    private fun openStockSaisieList() {
+        fragmentViewModel.getStockSaisieList().observe(viewLifecycleOwner) {
+            when (it) {
+                is EpApiState.Success -> {
+                    (requireActivity() as? MainActivity)?.hideLoader()
+                    it.data?.let { stockList ->
+                        AppUtils.hideKeyboard(requireActivity())
+                        showStockeSaisieList(stockList)
+                    }
+                }
+
+                is EpApiState.Loading -> {
+                    (requireActivity() as? MainActivity)?.showLoader()
+                }
+
+                else -> {
+                    (requireActivity() as? MainActivity)?.hideLoader()
+                }
+            }
+        }
+    }
+
+    private fun showStockeSaisieList(data: List<StockSaisieEntity>) {
+        args.cmd?.let {
+            val item =
+                StockSaisieListBottomDialog(it, data) {
+                    getPackingListEntity()
+                }
+            item.show(
+                requireActivity().supportFragmentManager,
+                StockSaisieListBottomDialog::class.simpleName
+            )
+        }
+    }
+
+    private fun getPackingListEntity() {
+        fragmentViewModel.getPackingListEntity("", "")
+            .observe(viewLifecycleOwner) { packingListState ->
+                when (packingListState) {
+                    is EpApiState.Loading -> {
+                        (requireActivity() as? MainActivity)?.showLoader()
+                    }
+
+                    is EpApiState.Success -> {
+                        (requireActivity() as? MainActivity)?.hideLoader()
+                        packingListState.data?.let {
+                            AppUtils.hideKeyboard(requireActivity())
+                            openPackingListBottomDialog(it)
+                        }
+                    }
+
+                    is EpApiState.Error -> {
+                        (requireActivity() as? MainActivity)?.hideLoader()
+                    }
+
+                    else -> {}
+                }
+            }
+    }
+
+    private fun openPackingListBottomDialog(packingListEntities: List<PackingListEntity>) {
+        val item =
+            PackingListBottomDialog(packingListEntities) {
+                AppUtils.hideKeyboard(requireActivity())
+            }
+        item.show(
+            requireActivity().supportFragmentManager,
+            PackingListBottomDialog::class.simpleName
+        )
     }
 
     private fun deleteDocuments() {
@@ -213,6 +287,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                         }
                     }
                 }
+
                 is EpApiState.Error -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     Timber.e("8888${result.error}")
@@ -228,6 +303,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                                 customErrorDialogView
                             )
                         }
+
                         else -> {
                             customErrorDialogView = CustomDialog.inflateCustomDialogView(
                                 requireContext(),
@@ -242,10 +318,12 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
 
                     }
                 }
+
                 is EpApiState.Loading -> {
                     (requireActivity() as? MainActivity)?.showLoader()
                     Timber.d("loading")
                 }
+
                 is EpApiState.Failure -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     Timber.d("loading")
@@ -267,6 +345,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                     binding.cityClient.setText(result.data?.city)
                     binding.salerID.setText(result.data?.Salesperson_Code)
                 }
+
                 is EpApiState.Error -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     when (result.error) {
@@ -281,6 +360,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                                 customErrorDialogView
                             )
                         }
+
                         else -> {
                             customErrorDialogView = CustomDialog.inflateCustomDialogView(
                                 requireContext(),
@@ -295,10 +375,12 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
 
                     }
                 }
+
                 is EpApiState.Loading -> {
                     (requireActivity() as? MainActivity)?.showLoader()
                     Timber.d("loading")
                 }
+
                 is EpApiState.Failure -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     Timber.d("loading")
@@ -342,6 +424,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                         }
                     }
                 }
+
                 is EpApiState.Error -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     when (result.error) {
@@ -356,6 +439,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                                 customErrorDialogView
                             )
                         }
+
                         else -> {
                             customErrorDialogView = CustomDialog.inflateCustomDialogView(
                                 requireContext(),
@@ -370,10 +454,12 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
 
                     }
                 }
+
                 is EpApiState.Loading -> {
                     (requireActivity() as? MainActivity)?.showLoader()
                     Timber.d("loading")
                 }
+
                 is EpApiState.Failure -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     Timber.d("loading")
@@ -388,6 +474,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                         requireActivity().onBackPressed()
                     }
                 }
+
                 is EpApiState.Error -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     when (result.error) {
@@ -402,6 +489,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                                 customErrorDialogView
                             )
                         }
+
                         else -> {
                             customErrorDialogView = CustomDialog.inflateCustomDialogView(
                                 requireContext(),
@@ -416,10 +504,12 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
 
                     }
                 }
+
                 is EpApiState.Loading -> {
                     (requireActivity() as? MainActivity)?.showLoader()
                     Timber.d("loading")
                 }
+
                 is EpApiState.Failure -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     Timber.d("loading")
@@ -432,6 +522,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     requireActivity().onBackPressed()
                 }
+
                 is EpApiState.Error -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     when (result.error) {
@@ -454,10 +545,12 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
 
                     }
                 }
+
                 is EpApiState.Loading -> {
                     (requireActivity() as? MainActivity)?.showLoader()
                     Timber.d("loading")
                 }
+
                 is EpApiState.Failure -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     requireActivity().onBackPressed()
@@ -477,6 +570,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                         itemsAdapter.differ.submitList(fragmentViewModel.items)
                     }
                 }
+
                 is EpApiState.Error -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     when (result.error) {
@@ -491,6 +585,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                                 customErrorDialogView
                             )
                         }
+
                         else -> {
                             customErrorDialogView = CustomDialog.inflateCustomDialogView(
                                 requireContext(),
@@ -505,10 +600,12 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
 
                     }
                 }
+
                 is EpApiState.Loading -> {
                     (requireActivity() as? MainActivity)?.showLoader()
                     Timber.d("loading")
                 }
+
                 is EpApiState.Failure -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     Timber.d("loading")
@@ -525,6 +622,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                         itemsAdapter.differ.submitList(fragmentViewModel.items)
                     }
                 }
+
                 is EpApiState.Error -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     when (result.error) {
@@ -539,6 +637,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                                 customErrorDialogView
                             )
                         }
+
                         else -> {
                             customErrorDialogView = CustomDialog.inflateCustomDialogView(
                                 requireContext(),
@@ -553,10 +652,12 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
 
                     }
                 }
+
                 is EpApiState.Loading -> {
                     (requireActivity() as? MainActivity)?.showLoader()
                     Timber.d("loading")
                 }
+
                 is EpApiState.Failure -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     Timber.d("loading")
@@ -571,6 +672,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                     itemsAdapter.setList(fragmentViewModel.items)
                     itemsAdapter.differ.submitList(fragmentViewModel.items)
                 }
+
                 is EpApiState.Error -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     //insert data line one by one
@@ -588,6 +690,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
                                 customErrorDialogView
                             )
                         }
+
                         else -> {
                             customErrorDialogView = CustomDialog.inflateCustomDialogView(
                                 requireContext(),
@@ -603,10 +706,12 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
 
                     }
                 }
+
                 is EpApiState.Loading -> {
                     (requireActivity() as? MainActivity)?.showLoader()
                     Timber.d("loading")
                 }
+
                 is EpApiState.Failure -> {
                     (requireActivity() as? MainActivity)?.hideLoader()
                     //insert data line one by one

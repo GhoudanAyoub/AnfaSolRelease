@@ -1,6 +1,8 @@
 package ghoudan.anfaSolution.com.networking.repository
 
 import chari.groupewib.com.app_models.Item
+import chari.groupewib.com.networking.entity.PackingListEntity
+import chari.groupewib.com.networking.entity.StockSaisieEntity
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderRequest
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderResult
 import chari.groupewib.com.networking.request.PurchaseOrderLinesRequest
@@ -22,6 +24,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onStart
 import kotlinx.serialization.json.Json
+import retrofit2.http.Path
 import timber.log.Timber
 
 class OrderRepository @Inject constructor(
@@ -454,6 +457,28 @@ class OrderRepository @Inject constructor(
     suspend fun getPorchesCommands(): Flow<EpApiState<List<PurchaseOrder>>> {
         return flow<EpApiState<List<PurchaseOrder>>> {
             val result = api.getPorchesCommands()
+            val data = result.data
+            emit(EpApiState.Success(data))
+        }.onStart { emit(EpApiState.Loading()) }
+            .catch {
+                emit(EpApiState.Error(it))
+            }
+    }
+
+    suspend fun getStockSaisieList(): Flow<EpApiState<List<StockSaisieEntity>>> {
+        return flow<EpApiState<List<StockSaisieEntity>>> {
+            val result = api.getStockSaisieList()
+            val data = result.data
+            emit(EpApiState.Success(data))
+        }.onStart { emit(EpApiState.Loading()) }
+            .catch {
+                emit(EpApiState.Error(it))
+            }
+    }
+
+    suspend fun getPackingListEntity(docType: String,docNo: String): Flow<EpApiState<List<PackingListEntity>>> {
+        return flow<EpApiState<List<PackingListEntity>>> {
+            val result = api.getPackingList()
             val data = result.data
             emit(EpApiState.Success(data))
         }.onStart { emit(EpApiState.Loading()) }

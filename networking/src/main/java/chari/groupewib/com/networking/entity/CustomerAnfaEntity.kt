@@ -6,8 +6,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CustomerAnfaEntity(
 
-    @SerialName("Code_Int")
-    val code: Int,
+    @SerialName("No")
+    val code: String? = null,
     @SerialName("Name")
     val name: String? = null,
     @SerialName("Enseigne")
