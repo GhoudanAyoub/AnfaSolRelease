@@ -15,7 +15,17 @@ object AnfaAppNavigator {
             setPopEnterAnim(R.anim.slide_in_left)
             setPopExitAnim(R.anim.slide_out_right)
         }.build()
+            navController.navigate(directions = action, navOptions = appNavOptions)
+    }
+    fun navigate(navController: NavController, action: Int) {
 
-        navController.navigate(directions = action, navOptions = appNavOptions)
+        val appNavOptions = NavOptions.Builder().apply {
+            setLaunchSingleTop(true)
+            setEnterAnim(R.anim.slide_in_right)
+            setExitAnim(R.anim.slide_out_left)
+            setPopEnterAnim(R.anim.slide_in_left)
+            setPopExitAnim(R.anim.slide_out_right)
+        }.build()
+            navController.navigate(resId = action,args = null, navOptions = appNavOptions)
     }
 }

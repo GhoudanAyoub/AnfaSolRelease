@@ -32,7 +32,6 @@ internal class ErrorHandlingInterceptor @Inject constructor() : Interceptor {
             HttpURLConnection.HTTP_UNAUTHORIZED -> Timber.e("UNAUTHORIZED")
             HttpURLConnection.HTTP_BAD_REQUEST -> Timber.e("HTTP_BAD_REQUEST")
             HttpURLConnection.HTTP_INTERNAL_ERROR -> throw HttpInternalErrorException()
-            HttpURLConnection.HTTP_NOT_FOUND -> Timber.e("HttpNotFoundException")
             HttpURLConnection.HTTP_CONFLICT -> throw HttpConflictException()
             HttpURLConnection.HTTP_FORBIDDEN -> throw HttpForbiddenException()
             HttpURLConnection.HTTP_NOT_ACCEPTABLE -> throw HttpNotAcceptableException()

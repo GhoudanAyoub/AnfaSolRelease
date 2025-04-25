@@ -41,6 +41,7 @@ class LoginFragmentViewModel @Inject constructor(
     private val sendSmsCodeResult: SingleLiveEvent<UserCredentialsState> = SingleLiveEvent()
     val sendSmsCodeLiveData: LiveData<UserCredentialsState> = sendSmsCodeResult
 
+
     fun login(phoneNumber: String, password: String) {
         viewModelScope.launch {
             loginRepository.login(phoneNumber, password).collect { userLoginResult ->
@@ -58,12 +59,6 @@ class LoginFragmentViewModel @Inject constructor(
     fun getUserInfo() {
         viewModelScope.launch {
             userInfoRepository.fetchUserInfo().collect { userInfoState ->
-//                if (userInfoState is EpApiState.Success) {
-//                    val currentUserJson = Json.encodeToString(userInfoState.data.fir)
-//                    currentUserPreferences.edit()
-//                        .putString(Constants.CURRENT_USER_KEY, currentUserJson).apply()
-//                    val user = userInfoState.data
-//                }
                 userInfoLiveData.value = userInfoState
             }
         }

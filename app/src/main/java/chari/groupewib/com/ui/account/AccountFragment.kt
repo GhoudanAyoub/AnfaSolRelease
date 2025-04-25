@@ -56,6 +56,7 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
         super.onViewCreated(view, savedInstanceState)
         setupAppBar()
 
+        (requireActivity() as? MainActivity)?.hideLoader()
         binding.appV.text =
             getString(
                 R.string.about_version,

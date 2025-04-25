@@ -41,20 +41,20 @@ android {
             shrinkResources = true
             debuggable = false
             signingConfig = signingConfigs.config
-            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
+            buildConfigField "String", "BASE_URL", "\"http://105.73.203.245:7548/ABFISH_Device/ODataV4/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             multiDexKeepProguard = file('multidex-config.pro')
         }
         preprod {
             debuggable = true
             signingConfig signingConfigs.config
-            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
+            buildConfigField "String", "BASE_URL", "\"http://105.73.203.245:7548/ABFISH_Device/ODataV4/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             multiDexKeepProguard = file('multidex-config.pro')
         }
         debug {
             debuggable = true
-            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
+            buildConfigField "String", "BASE_URL", "\"http://105.73.203.245:7548/ABFISH_Device/ODataV4/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             multiDexKeepProguard = file('multidex-config.pro')
             ext.enableCrashlytics = false

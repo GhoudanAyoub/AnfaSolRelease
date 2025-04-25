@@ -3,6 +3,8 @@ package ghoudan.anfaSolution.com.networking.api
 import chari.groupewib.com.app_models.SingleItemResponse
 import chari.groupewib.com.networking.entity.ItemEntity
 import chari.groupewib.com.networking.entity.ItemStockEntity
+import chari.groupewib.com.networking.entity.PackingListEntity
+import chari.groupewib.com.networking.entity.StockSaisieEntity
 import chari.groupewib.com.networking.request.CreateClientRequest
 import chari.groupewib.com.networking.request.CreateItemRequest
 import chari.groupewib.com.networking.request.CreateSupplierRequest
@@ -32,7 +34,7 @@ interface EpApi {
 
     //**** Purchase
     //returns 204 as valid request
-    @DELETE("Company('Orca%20Mar%C3%A9e')/Commande_achat(Document_Type='{type}',No='{num}')")
+    @DELETE("Company('ABFISH-140')/Commande_achat(Document_Type='{type}',No='{num}')")
     suspend fun deletePurchaseCommandsHeader(
 //        @Header("if-Match") Etag: String,
         @Path("type") type: String,
@@ -40,13 +42,13 @@ interface EpApi {
     ): Response<Unit>
 
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Commande_achat(Document_Type='{type}',No='{num}')")
+    @GET("Company('ABFISH-140')/Commande_achat(Document_Type='{type}',No='{num}')")
     suspend fun getPurchaseCommandsHeader(
         @Path("type") type: String,
         @Path("num") document8no: String): Response<PurchaseOrderHeaderResult>
 
     //header on request
-    @PATCH("Company('Orca%20Mar%C3%A9e')/Commande_achat(Document_Type='{type}',No='{num}')")
+    @PATCH("Company('ABFISH-140')/Commande_achat(Document_Type='{type}',No='{num}')")
     suspend fun updatePurchaseCommandsHeader(
         @Header("if-Match") Etag: String,
         @Path("type") type: String,
@@ -54,11 +56,11 @@ interface EpApi {
         @Body order: UpdatePurchaseHeaderRequest
     ): Response<PurchaseOrderHeaderResult>
 
-    @POST("Company('Orca%20Mar%C3%A9e')/Commande_achat")
+    @POST("Company('ABFISH-140')/Commande_achat")
     suspend fun addPurchaseCommandsHeader(@Body order: PurchaseOrderHeaderRequest): Response<PurchaseOrderHeaderResult>
 
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Achat_Lignes(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
+    @GET("Company('ABFISH-140')/Achat_Lignes(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
     suspend fun getPurchaseCommandsLine(
         @Path("type") type: String,
         @Path("num") document8no: String,
@@ -67,7 +69,7 @@ interface EpApi {
     //********** purchase lines
     //returns 204 as valid request
 
-    @DELETE("Company('Orca%20Mar%C3%A9e')/Achat_Lignes(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
+    @DELETE("Company('ABFISH-140')/Achat_Lignes(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
     suspend fun deletePurchaseCommandsLine(
 //        @Header("if-Match") Etag: String,
         @Path("type") type: String,
@@ -76,7 +78,7 @@ interface EpApi {
     ): Response<Unit>
 
     //header on request
-    @PATCH("Company('Orca%20Mar%C3%A9e')/Achat_Lignes(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
+    @PATCH("Company('ABFISH-140')/Achat_Lignes(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
     suspend fun updatePurchaseCommandsLine(
         @Header("if-Match") Etag: String,
         @Path("type") type: String,
@@ -85,11 +87,11 @@ interface EpApi {
         @Body order: PurchaseOrderLinesRequest
     ): Response<SalesOrderLinesResponse>
 
-    @POST("Company('Orca%20Mar%C3%A9e')/Achat_Lignes")
+    @POST("Company('ABFISH-140')/Achat_Lignes")
     suspend fun addPurchaseCommandsLine(@Body order: PurchaseOrderLinesRequest): Response<SalesOrderLinesResponse>
 
     //get purchase lines by document type and document no
-    @GET("Company('Orca%20Mar%C3%A9e')/Achat_Lignes(Document_Type='{type}',Document_No='{num}')")
+    @GET("Company('ABFISH-140')/Achat_Lignes(Document_Type='{type}',Document_No='{num}')")
     suspend fun getPurchaseCommandsLines(
         @Query("type") type: String,
         @Query("num") document8no: String
@@ -98,7 +100,7 @@ interface EpApi {
     //************ Sales
     //returns 204 as valid request
 
-    @DELETE("Company('Orca%20Mar%C3%A9e')/Sales_Order_Header(Document_Type='{type}',No='{num}')")
+    @DELETE("Company('ABFISH-140')/Sales_Order_Header(Document_Type='{type}',No='{num}')")
     suspend fun deleteSalesCommandsHeader(
 //        @Header("if-Match") Etag: String,
         @Path("type") type: String,
@@ -107,7 +109,7 @@ interface EpApi {
 
 
     //header on request
-    @PATCH("Company('Orca%20Mar%C3%A9e')/Sales_Order_Header(Document_Type='{type}',No='{num}')")
+    @PATCH("Company('ABFISH-140')/Sales_Order_Header(Document_Type='{type}',No='{num}')")
     suspend fun updateSalesCommandsHeader(
         @Header("if-Match") Etag: String,
         @Path("type") type: String,
@@ -115,17 +117,17 @@ interface EpApi {
         @Body order: UpdateSalesHeaderRequest
     ): Response<SalesOrderHeaderResult>
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Sales_Order_Header(Document_Type='{type}',No='{num}')")
+    @GET("Company('ABFISH-140')/Sales_Order_Header(Document_Type='{type}',No='{num}')")
     suspend fun getSalesCommandsHeader(
         @Path("type") type: String,
         @Path("num") document8no: String): Response<SalesOrderHeaderResult>
 
-    @POST("Company('Orca%20Mar%C3%A9e')/Sales_Order_Header")
+    @POST("Company('ABFISH-140')/Sales_Order_Header")
     suspend fun addSalesCommandsHeader(@Body order: SalesOrderHeaderRequest): Response<SalesOrderHeaderResult>
 
 
     //returns 204 as valid request
-    @DELETE("Company('Orca%20Mar%C3%A9e')/Sales_Order_Lines(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
+    @DELETE("Company('ABFISH-140')/Sales_Order_Lines(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
     suspend fun deleteSalesCommandsLine(
         @Header("if-Match") Etag: String,
         @Path("type") type: String,
@@ -135,7 +137,7 @@ interface EpApi {
 
 
     //header on request
-    @PATCH("Company('Orca%20Mar%C3%A9e')/Sales_Order_Lines(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
+    @PATCH("Company('ABFISH-140')/Sales_Order_Lines(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
     suspend fun updateSalesCommandsLine(
         @Header("if-Match") Etag: String,
         @Path("type") type: String,
@@ -144,60 +146,60 @@ interface EpApi {
         @Body order: SalesOrderLinesRequest
     ): Response<SalesOrderLinesResponse>
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Sales_Order_Lines(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
+    @GET("Company('ABFISH-140')/Sales_Order_Lines(Document_Type='{type}',Document_No='{num}',Line_No={numLine})")
     suspend fun getSalesCommandsLine(
         @Path("type") type: String,
         @Path("num") document8no: String,
         @Path("numLine") numLine: Int
     ): Response<SalesOrderLinesResponse>
 
-    @POST("Company('Orca%20Mar%C3%A9e')/Sales_Order_Lines")
+    @POST("Company('ABFISH-140')/Sales_Order_Lines")
     suspend fun addSalesCommandsLine(@Body order: SalesOrderLinesRequest): Response<SalesOrderLinesResponse>
 
     //get sales lines by document type and document no
-    @GET("Company('Orca%20Mar%C3%A9e')/Sales_Order_Lines")
+    @GET("Company('ABFISH-140')/Sales_Order_Lines")
     suspend fun getSalesCommandsLines(
         @Query("\$filter") document8no: String
     ): EPApiCollectionResponse<List<ItemEntityResponse>>
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Sales_Header")
+    @GET("Company('ABFISH-140')/Sales_Header")
     suspend fun getSelesCommands(): EPApiCollectionResponse<List<CommandAchat>>
 
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Achat_Lignes")
+    @GET("Company('ABFISH-140')/Achat_Lignes")
     suspend fun getPurchaseCommandsLines(
         @Query("\$filter") document8no: String
     ): EPApiCollectionResponse<List<PurchaseItemEntityResponse>>
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Commande_achat_List")
+    @GET("Company('ABFISH-140')/Commande_achat_List")
     suspend fun getPorchesCommands(): EPApiCollectionResponse<List<PurchaseOrder>>
 
     //*******clients
-    @GET("Company('Orca%20Mar%C3%A9e')/List_Clients")
+    @GET("Company('ABFISH-140')/List_Clients")
     suspend fun getClients(): EPApiCollectionResponse<List<CustomerAnfaEntity>>
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Fiche_client(No='{num}')")
+    @GET("Company('ABFISH-140')/Fiche_client(No='{num}')")
     suspend fun getSingleClients(
         @Path("num") clientId: String
     ): Response<CustomerAnfa>
-    @GET("Company('Orca%20Mar%C3%A9e')/Fiche_Article(No='{num}')")
+    @GET("Company('ABFISH-140')/Fiche_Article(No='{num}')")
     suspend fun getSingleItem(
         @Path("num") clientId: String
     ): Response<SingleItemResponse>
 
-    @POST("Company('Orca%20Mar%C3%A9e')/Fiche_client")
+    @POST("Company('ABFISH-140')/Fiche_client")
     suspend fun addClient(@Body order: CreateClientRequest): Response<CustomerAnfa>
 
-    @PATCH("Company('Orca%20Mar%C3%A9e')/Fiche_client(No='{No}')")
+    @PATCH("Company('ABFISH-140')/Fiche_client(No='{No}')")
     suspend fun updateClient(
         @Header("if-Match") Etag: String,
         @Path("No") type: String,
         @Body order: CreateClientRequest
     ): Response<CustomerAnfa>
-    @POST("Company('Orca%20Mar%C3%A9e')/Fiche_Article")
+    @POST("Company('ABFISH-140')/Fiche_Article")
     suspend fun addItem(@Body order: CreateItemRequest): Response<SingleItemResponse>
 
-    @PATCH("Company('Orca%20Mar%C3%A9e')/Fiche_Article(No='{No}')")
+    @PATCH("Company('ABFISH-140')/Fiche_Article(No='{No}')")
     suspend fun updateItem(
         @Header("if-Match") Etag: String,
         @Path("No") type: String,
@@ -205,7 +207,7 @@ interface EpApi {
     ): Response<SingleItemResponse>
 
 
-    @DELETE("Company('Orca%20Mar%C3%A9e')/Fiche_client(No='{No}')")
+    @DELETE("Company('ABFISH-140')/Fiche_client(No='{No}')")
     suspend fun deleteClient(
         @Header("if-Match") Etag: String,
         @Path("No") type: String
@@ -213,37 +215,36 @@ interface EpApi {
 
 
     //***********Suppliers
-    @POST("Company('Orca%20Mar%C3%A9e')/Fiche_Fournisseur")
+    @POST("Company('ABFISH-140')/Fiche_Fournisseur")
     suspend fun addSupplier(@Body order: CreateSupplierRequest): Response<SupplierAnfa>
 
-    @GET("Company('Orca%20Mar%C3%A9e')/List_Fournisseurs")
+    @GET("Company('ABFISH-140')/List_Fournisseurs")
     suspend fun getSuppliers(): EPApiCollectionResponse<List<SupplierAnfaEntity>>
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Fiche_Fournisseur(No='{num}')")
+    @GET("Company('ABFISH-140')/Fiche_Fournisseur(No='{num}')")
     suspend fun getSingleSuppliers(
         @Path("num") clientId: String
     ): Response<SupplierAnfa>
 
-    @PATCH("Company('Orca%20Mar%C3%A9e')/Fiche_Fournisseur(No='{No}')")
+    @PATCH("Company('ABFISH-140')/Fiche_Fournisseur(No='{No}')")
     suspend fun updateSupplier(
         @Header("if-Match") Etag: String,
         @Path("No") type: String,
         @Body order: CreateSupplierRequest
     ): Response<SupplierAnfa>
 
-    @DELETE("Company('Orca%20Mar%C3%A9e')/Fiche_Fournisseur(No='{No}')")
+    @DELETE("Company('ABFISH-140')/Fiche_Fournisseur(No='{No}')")
     suspend fun deleteSupplier(
         @Header("if-Match") Etag: String,
         @Path("No") type: String
     ): Response<Unit>
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Fiche_Article")
+    @GET("Company('ABFISH-140')/Fiche_Article")
     suspend fun getArticles(): EPApiCollectionResponse<List<ItemEntity>>
 
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Lots_Articles_Disponibles")
+    @GET("Company('ABFISH-140')/Lots_Articles_Disponibles")
     suspend fun getStock(): EPApiCollectionResponse<List<ItemStockEntity>>
-
 
     @POST("users/login")
     suspend fun login(@Body loginRequest: LoginRequest)
@@ -254,8 +255,16 @@ interface EpApi {
             : Response<Unit>
 
 
-    @GET("Company('Orca%20Mar%C3%A9e')/Users")
+    @GET("Company('ABFISH-140')/Users")
     suspend fun getUserInfo(): EPApiCollectionResponse<List<UserEntity>>
+
+
+    @GET("Company('ABFISH-140')/StockSaisieList")
+    suspend fun getStockSaisieList(): EPApiCollectionResponse<List<StockSaisieEntity>>
+
+    @GET("Company('ABFISH-140')/PackingList?\$filter=No_Art eq 'COROI' and flag_entierement_affecté ne true")
+    suspend fun getPackingList(
+    ): EPApiCollectionResponse<List<PackingListEntity>>
 
 
 }

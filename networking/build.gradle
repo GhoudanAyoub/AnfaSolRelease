@@ -9,17 +9,17 @@ android {
     buildTypes {
         release {
             minifyEnabled = true
-            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
+            buildConfigField "String", "BASE_URL", "\"http://105.73.203.245:7548/ABFISH_Device/ODataV4/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         preprod {
             debuggable = true
-            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
+            buildConfigField "String", "BASE_URL", "\"http://105.73.203.245:7548/ABFISH_Device/ODataV4/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             debuggable = true
-            buildConfigField "String", "BASE_URL", "\"http://197.230.127.119:7048/Mobile_app/ODataV4/\""
+            buildConfigField "String", "BASE_URL", "\"http://105.73.203.245:7548/ABFISH_Device/ODataV4/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

@@ -5,8 +5,11 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import chari.groupewib.com.app_models.Item
+import chari.groupewib.com.networking.entity.PackingListEntity
+import chari.groupewib.com.networking.entity.StockSaisieEntity
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderRequest
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderResult
 import chari.groupewib.com.networking.request.PurchaseOrderLinesRequest
@@ -28,12 +31,14 @@ import ghoudan.anfaSolution.com.networking.state.EpApiState
 import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
 @HiltViewModel
 class CommandViewModel @Inject constructor(
     private val orderRepository: OrderRepository,
-    private val clientListRepository: ClientListRepository
+    private val clientListRepository: ClientListRepository,
 ) : ViewModel() {
 
     val items = mutableListOf<Item>()
@@ -122,7 +127,7 @@ class CommandViewModel @Inject constructor(
 
     fun getPurchaseCommandsHeader(
         type: String,
-        document8no: String
+        document8no: String,
     ) {
         viewModelScope.launch {
             orderRepository.getPurchaseCommandsHeader(type, document8no)
@@ -135,7 +140,7 @@ class CommandViewModel @Inject constructor(
     fun updatePurchaseCommandsHeader(
         type: String,
         document8no: String,
-        order: UpdatePurchaseHeaderRequest
+        order: UpdatePurchaseHeaderRequest,
     ) {
         viewModelScope.launch {
             orderRepository.getPurchaseCommandsHeader(type, document8no)
@@ -155,7 +160,7 @@ class CommandViewModel @Inject constructor(
     fun deletePurchaseCommandsHeader(
         etag: String,
         type: String,
-        document8no: String
+        document8no: String,
     ) {
         viewModelScope.launch {
             orderRepository.deletePurchaseCommandsHeader(etag, type, document8no)
@@ -170,7 +175,7 @@ class CommandViewModel @Inject constructor(
         etag: String,
         type: String,
         document8no: String,
-        code: String
+        code: String,
     ) {
         viewModelScope.launch {
             items.first { it.code == code }.Line_No?.let { numLine ->
@@ -191,7 +196,7 @@ class CommandViewModel @Inject constructor(
         lineNo: Int,
         weight: Double,
         units: Double,
-        parcel: Int
+        parcel: Int,
     ) {
         viewModelScope.launch {
             items.first { it.code == code }.also {
@@ -281,7 +286,7 @@ class CommandViewModel @Inject constructor(
     fun updateSalesCommandsHeader(
         type: String,
         document8no: String,
-        order: UpdateSalesHeaderRequest
+        order: UpdateSalesHeaderRequest,
     ) {
         viewModelScope.launch {
             orderRepository.getSalesCommandsHeader(type, document8no).collect { headerResult ->
@@ -370,7 +375,7 @@ class CommandViewModel @Inject constructor(
         Etag: String,
         type: String,
         document8no: String,
-        code: String?
+        code: String?,
     ) {
         viewModelScope.launch {
             items.first { it.code == code }.Line_No?.let { numLine ->
@@ -403,7 +408,7 @@ class CommandViewModel @Inject constructor(
         Line_No: Int,
         weight: Double,
         units: Double,
-        parcel: Int
+        parcel: Int,
     ) {
         viewModelScope.launch {
             items.firstOrNull { it.Line_No == Line_No }.also {
@@ -442,7 +447,7 @@ class CommandViewModel @Inject constructor(
     fun deleteSalesCommandsHeader(
         etag: String,
         type: String,
-        document8no: String
+        document8no: String,
     ) {
         viewModelScope.launch {
             orderRepository.deleteSalesCommandsHeader(etag, type, document8no)
@@ -455,7 +460,7 @@ class CommandViewModel @Inject constructor(
     fun getSalesCommandsLines(
         type: String,
         document8no: String,
-        b: Boolean = false
+        b: Boolean = false,
     ) {
         viewModelScope.launch {
             orderRepository.getSalesCommandsLines(type, document8no, b)
@@ -482,7 +487,7 @@ class CommandViewModel @Inject constructor(
     }
 
     fun getCustomerByID(
-        guid: String
+        guid: String,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             clientListRepository.getCustomerByID(guid).collectLatest { result ->
@@ -494,7 +499,7 @@ class CommandViewModel @Inject constructor(
     }
 
     fun getSupplierByID(
-        guid: String
+        guid: String,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             clientListRepository.getSupplierByID(guid).collectLatest { result ->
@@ -524,4 +529,25 @@ class CommandViewModel @Inject constructor(
         }
     }
 
+    fun getStockSaisieList(): LiveData<EpApiState<List<StockSaisieEntity>>> {
+        return liveData {
+            orderRepository.getStockSaisieList()
+                .distinctUntilChanged()
+                .flowOn(Dispatchers.IO)
+                .collect {
+                    emit(it)
+                }
+        }
+    }
+
+    fun getPackingListEntity(docType: String,docNo: String): LiveData<EpApiState<List<PackingListEntity>>> {
+        return liveData {
+            orderRepository.getPackingListEntity(docType,docNo)
+                .distinctUntilChanged()
+                .flowOn(Dispatchers.IO)
+                .collect {
+                    emit(it)
+                }
+        }
+    }
 }

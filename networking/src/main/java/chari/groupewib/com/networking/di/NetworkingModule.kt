@@ -69,9 +69,9 @@ object NetworkingModule {
             })
             .addInterceptor(loggingInterceptor)
             .addInterceptor(errorHandlingInterceptor)
-            .connectTimeout(60, TimeUnit.SECONDS)
-            .readTimeout(60, TimeUnit.SECONDS)
-            .writeTimeout(60, TimeUnit.SECONDS)
+            .connectTimeout(120, TimeUnit.SECONDS)
+            .readTimeout(120, TimeUnit.SECONDS)
+            .writeTimeout(120, TimeUnit.SECONDS)
             .build()
 
     }
@@ -89,7 +89,7 @@ object NetworkingModule {
         }
 
         val api = Retrofit.Builder()
-            .baseUrl("http://197.230.127.119:7048/Mobile_app/ODataV4/")
+            .baseUrl("http://105.73.203.245:7548/ABFISH_Device/ODataV4/")
             .addConverterFactory(json.asConverterFactory(contentType))
             .client(httpClient)
             .build()

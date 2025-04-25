@@ -32,7 +32,7 @@
                 android:layout_marginStart="56dp"
                 android:layout_marginTop="@dimen/spacing_xxl_2"
                 android:layout_marginEnd="56dp"
-                android:text="@string/add_phone_number"
+                android:text="Merci de saisir le nom d'utilisateur et mot de passe"
                 android:textAlignment="center"
                 android:textColor="@color/brand_hover" />
 

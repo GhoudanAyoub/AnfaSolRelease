@@ -128,7 +128,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 binding.phoneVal.setState(ChariInputField.State.ERROR)
                 binding.btnConnect.isEnabled = false
             } else if (binding.passowrd.getText().isEmpty()) {
-                binding.phoneVal.setState(ChariInputField.State.ERROR)
+                binding.passowrd.setState(ChariInputField.State.ERROR)
                 binding.btnConnect.isEnabled = false
             } else {
                 viewModel.getUserInfo()
@@ -153,12 +153,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         val currentUserJson = Json.encodeToString(user.first())
                         currentUserPreferences.edit()
                             .putString(Constants.CURRENT_USER_KEY, currentUserJson).apply()
-
-                        val action = LoginFragmentDirections.actionLoginFragmentToAccountFragment()
-                        AnfaAppNavigator.navigate(findNavController(), action)
+                        AnfaAppNavigator.navigate(findNavController(), R.id.AccountFragment)
                     }else{
                         binding.phoneVal.setState(ChariInputField.State.ERROR)
-                        binding.phoneVal.setState(ChariInputField.State.ERROR)
+                        binding.passowrd.setState(ChariInputField.State.ERROR)
                         binding.btnConnect.isEnabled = false
                     }
                 }

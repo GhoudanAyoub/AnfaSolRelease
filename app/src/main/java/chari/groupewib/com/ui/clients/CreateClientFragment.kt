@@ -279,4 +279,9 @@ class CreateClientFragment : Fragment(R.layout.fragment_create_client) {
             Toast.LENGTH_SHORT
         ).show()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (requireActivity() as? MainActivity)?.hideLoader()
+    }
 }
