@@ -8,6 +8,7 @@ import android.view.WindowManager
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import chari.groupewib.com.app_models.Item
@@ -49,7 +50,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
     private var postClientDate: String = ""
     private var dueClientDate: String = ""
     lateinit var binding: FragmentCreateSalesOrderBinding
-    private val fragmentViewModel by activityViewModels<CommandViewModel>()
+    private val fragmentViewModel by viewModels<CommandViewModel>()
     private val viewModel: ClientListViewModel by activityViewModels()
     private val itemsAdapter: ItemsAdapter by lazy {
         ItemsAdapter(this)
@@ -199,7 +200,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
         args.cmd?.let {
             val item =
                 StockSaisieListBottomDialog(it, data) {
-                    getPackingListEntity()
+                    getPackingListEntity(it)
                 }
             item.show(
                 requireActivity().supportFragmentManager,
@@ -208,8 +209,8 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
         }
     }
 
-    private fun getPackingListEntity() {
-        fragmentViewModel.getPackingListEntity("", "")
+    private fun getPackingListEntity(noArticle: String) {
+        fragmentViewModel.getPackingListEntity(noArticle)
             .observe(viewLifecycleOwner) { packingListState ->
                 when (packingListState) {
                     is EpApiState.Loading -> {
@@ -233,15 +234,55 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
             }
     }
 
-    private fun openPackingListBottomDialog(packingListEntities: List<PackingListEntity>) {
-        val item =
-            PackingListBottomDialog(packingListEntities) {
-                AppUtils.hideKeyboard(requireActivity())
+    private fun getPackingListByColisNumber(NumColis: String,article_num: String, isSelected: Boolean? = false) {
+        fragmentViewModel.getPackingListByColisNumber(NumColis,article_num)
+            .observe(viewLifecycleOwner) { packingListState ->
+                when (packingListState) {
+                    is EpApiState.Loading -> {
+                        (requireActivity() as? MainActivity)?.showLoader()
+                    }
+
+                    is EpApiState.Success -> {
+                        (requireActivity() as? MainActivity)?.hideLoader()
+                        packingListState.data?.let {
+                            AppUtils.hideKeyboard(requireActivity())
+                            openPackingListBottomDialog(it, isSelected)
+                        }
+                    }
+
+                    is EpApiState.Error -> {
+                        (requireActivity() as? MainActivity)?.hideLoader()
+                    }
+
+                    else -> {}
+                }
             }
-        item.show(
-            requireActivity().supportFragmentManager,
-            PackingListBottomDialog::class.simpleName
-        )
+    }
+
+    private fun openPackingListBottomDialog(
+        packingListEntities: List<PackingListEntity>,
+        isSelected: Boolean? = false,
+    ) {
+        if (packingListEntities.isNotEmpty()) {
+            val item =
+                PackingListBottomDialog(packingListEntities, isSelected) {
+                    AppUtils.hideKeyboard(requireActivity())
+                }
+            item.show(
+                requireActivity().supportFragmentManager,
+                PackingListBottomDialog::class.simpleName
+            )
+        }else{
+            customErrorDialogView = CustomDialog.inflateCustomDialogView(
+                requireContext(),
+                getString(R.string.dialog_error_title),
+                getString(R.string.no_packing_list)
+            )
+            CustomDialog.showCustomAlertDialog(
+                requireContext(),
+                customErrorDialogView
+            )
+        }
     }
 
     private fun deleteDocuments() {
@@ -855,54 +896,7 @@ class CreateSalesOrder : Fragment(), ItemViewListener {
     }
 
     override fun onItemClicked(item: Item) {
-
-        val addProductDialog = UpdateItemDialog(
-            requireContext(), item
-        ) { weight, units, parcel ->
-            item.itemWeight = weight
-            item.itemUnits = units
-            item.parcel = parcel
-            fragmentViewModel.updateItemLine(item)
-            itemsAdapter.setList(fragmentViewModel.items)
-            itemsAdapter.differ.submitList(fragmentViewModel.items)
-
-            if (args.cmd != null) {
-
-                args.cmd?.doc_Type?.let {
-                    args.cmd?.No?.let { Document_No ->
-                        item.Line_No?.let { Line_No ->
-                            item.etag?.let { etag ->
-                                fragmentViewModel.updateSalesCommandsLine(
-                                    etag,
-                                    it,
-                                    Document_No, Line_No, weight, units, parcel
-                                )
-                            }
-                        }
-                    }
-                }
-            } else {
-                saleHeader?.Type?.let {
-                    saleHeader?.No?.let { Document_No ->
-                        item.Line_No?.let { Line_No ->
-                            item.etag?.let { etag ->
-                                fragmentViewModel.updateSalesCommandsLine(
-                                    etag,
-                                    it,
-                                    Document_No, Line_No, weight, units, parcel
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-            AppUtils.hideKeyboard(requireActivity())
-        }
-        addProductDialog.show()
-        addProductDialog.window?.clearFlags(
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                    or WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM
-        )
+        getPackingListByColisNumber(item.Line_No.toString(),item.code, true)
     }
 
     override fun onItemDeleted(item: Item) {

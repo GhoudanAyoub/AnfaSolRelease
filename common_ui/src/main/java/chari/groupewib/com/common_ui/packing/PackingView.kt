@@ -32,6 +32,12 @@ class PackingView : ConstraintLayout {
         val (stock, listener) = packingViewModel
         var isChecked = stock.isChecked
 
+        if (isChecked) {
+            binding.checkBox.setImageResource(R.drawable.baseline_check_box_24)
+        } else {
+            binding.checkBox.setImageResource(R.drawable.baseline_check_box_outline_blank_24)
+        }
+        
         binding.stockSaisieCntr.visibility = VISIBLE
         binding.productName.text =
             stock.codeFour.toString()

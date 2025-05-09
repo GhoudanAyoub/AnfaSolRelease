@@ -27,13 +27,12 @@ import ghoudan.anfaSolution.com.utils.AppUtils
 class StockSaisieListBottomDialog(
     var cmd: CommandAchat,
     var stockSaisieList: List<StockSaisieEntity>,
-    var callback: () -> Unit,
+    var callback: (String) -> Unit,
 ) :
     BottomSheetDialogFragment(),
     StockViewListener {
 
     private lateinit var binding: FragmentItemListDialogListDialogBinding
-    private val fragmentViewModel by activityViewModels<CommandViewModel>()
 
 
     private val controller by lazy {
@@ -96,7 +95,7 @@ class StockSaisieListBottomDialog(
 
     override fun onItemClicked(item: StockSaisieEntity) {
         AppUtils.hideKeyboard(requireActivity())
-        callback.invoke()
+        callback.invoke(item.no)
         dismiss()
     }
 

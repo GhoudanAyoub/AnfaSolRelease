@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="slogan">-</string>
+    <string name="no_packing_list">Pas de colis cochés</string>
 </resources>

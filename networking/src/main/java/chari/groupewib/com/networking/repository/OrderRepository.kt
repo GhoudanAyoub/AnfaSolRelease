@@ -3,6 +3,8 @@ package ghoudan.anfaSolution.com.networking.repository
 import chari.groupewib.com.app_models.Item
 import chari.groupewib.com.networking.entity.PackingListEntity
 import chari.groupewib.com.networking.entity.StockSaisieEntity
+import chari.groupewib.com.networking.request.BuildPackingListUrl
+import chari.groupewib.com.networking.request.PackingListUpdate
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderRequest
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderResult
 import chari.groupewib.com.networking.request.PurchaseOrderLinesRequest
@@ -24,12 +26,11 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onStart
 import kotlinx.serialization.json.Json
-import retrofit2.http.Path
 import timber.log.Timber
 
 class OrderRepository @Inject constructor(
     private val api: EpApi,
-    private val jsonSerializer: Json
+    private val jsonSerializer: Json,
 ) {
 
     suspend fun updateSalesCommandsLine(
@@ -37,7 +38,7 @@ class OrderRepository @Inject constructor(
         type: String,
         document8no: String,
         numLine: Int,
-        order: SalesOrderLinesRequest
+        order: SalesOrderLinesRequest,
     ): Flow<EpApiState<SalesOrderLinesResponse>> {
         return flow<EpApiState<SalesOrderLinesResponse>> {
             val result = api.updateSalesCommandsLine(Etag, type, document8no, numLine, order)
@@ -64,7 +65,7 @@ class OrderRepository @Inject constructor(
     suspend fun getSalesCommandsLine(
         type: String,
         document8no: String,
-        numLine: Int
+        numLine: Int,
     ): Flow<EpApiState<SalesOrderLinesResponse>> {
         return flow<EpApiState<SalesOrderLinesResponse>> {
             val result = api.getSalesCommandsLine(type, document8no, numLine)
@@ -92,7 +93,7 @@ class OrderRepository @Inject constructor(
         Etag: String,
         type: String,
         document8no: String,
-        numLine: Int
+        numLine: Int,
     ): Flow<EpApiState<Boolean>> {
         return flow<EpApiState<Boolean>> {
             val result = api.deleteSalesCommandsLine(Etag, type, document8no, numLine)
@@ -144,7 +145,7 @@ class OrderRepository @Inject constructor(
     suspend fun deleteSalesCommandsHeader(
         Etag: String,
         type: String,
-        document8no: String
+        document8no: String,
     ): Flow<EpApiState<Boolean>> {
         return flow<EpApiState<Boolean>> {
             val result = api.deleteSalesCommandsHeader(type, document8no)
@@ -195,7 +196,7 @@ class OrderRepository @Inject constructor(
 
     suspend fun getSalesCommandsHeader(
         type: String,
-        document8no: String
+        document8no: String,
     ): Flow<EpApiState<SalesOrderHeaderResult>> {
         return flow<EpApiState<SalesOrderHeaderResult>> {
             val result = api.getSalesCommandsHeader(type, document8no)
@@ -222,7 +223,7 @@ class OrderRepository @Inject constructor(
         Etag: String,
         type: String,
         document8no: String,
-        order: UpdateSalesHeaderRequest
+        order: UpdateSalesHeaderRequest,
     ): Flow<EpApiState<SalesOrderHeaderResult>> {
         return flow<EpApiState<SalesOrderHeaderResult>> {
             val result = api.updateSalesCommandsHeader(Etag, type, document8no, order)
@@ -249,7 +250,7 @@ class OrderRepository @Inject constructor(
     suspend fun getSalesCommandsLines(
         type: String,
         document8no: String,
-        b: Boolean = false
+        b: Boolean = false,
     ): Flow<EpApiState<List<Item>>> {
         return flow<EpApiState<List<Item>>> {
             if (b) {
@@ -271,7 +272,7 @@ class OrderRepository @Inject constructor(
     suspend fun deletePurchaseCommandsHeader(
         Etag: String,
         type: String,
-        document8no: String
+        document8no: String,
     ): Flow<EpApiState<Boolean>> {
         return flow<EpApiState<Boolean>> {
             val result = api.deletePurchaseCommandsHeader(type, document8no)
@@ -289,7 +290,7 @@ class OrderRepository @Inject constructor(
         etag: String,
         type: String,
         document8no: String,
-        order: UpdatePurchaseHeaderRequest
+        order: UpdatePurchaseHeaderRequest,
     ): Flow<EpApiState<PurchaseOrderHeaderResult>> {
         return flow<EpApiState<PurchaseOrderHeaderResult>> {
             val result = api.updatePurchaseCommandsHeader(etag, type, document8no, order)
@@ -314,7 +315,7 @@ class OrderRepository @Inject constructor(
 
     suspend fun getPurchaseCommandsHeader(
         type: String,
-        document8no: String
+        document8no: String,
     ): Flow<EpApiState<PurchaseOrderHeaderResult>> {
         return flow<EpApiState<PurchaseOrderHeaderResult>> {
             val result = api.getPurchaseCommandsHeader(type, document8no)
@@ -364,7 +365,7 @@ class OrderRepository @Inject constructor(
         Etag: String,
         type: String,
         document8no: String,
-        numLine: Int
+        numLine: Int,
     ): Flow<EpApiState<Boolean>> {
         return flow<EpApiState<Boolean>> {
             val result = api.deletePurchaseCommandsLine(type, document8no, numLine)
@@ -418,7 +419,7 @@ class OrderRepository @Inject constructor(
         type: String,
         document8no: String,
         numLine: Int,
-        order: PurchaseOrderLinesRequest
+        order: PurchaseOrderLinesRequest,
     ): Flow<EpApiState<SalesOrderLinesResponse>> {
         return flow<EpApiState<SalesOrderLinesResponse>> {
             val result = api.updatePurchaseCommandsLine(Etag, type, document8no, numLine, order)
@@ -476,11 +477,52 @@ class OrderRepository @Inject constructor(
             }
     }
 
-    suspend fun getPackingListEntity(docType: String,docNo: String): Flow<EpApiState<List<PackingListEntity>>> {
+    suspend fun getPackingListEntity(docNo: String): Flow<EpApiState<List<PackingListEntity>>> {
         return flow<EpApiState<List<PackingListEntity>>> {
-            val result = api.getPackingList()
+            val filter = "No_Art eq '${docNo}' and flag_entierement_affecté ne true"
+            val result = api.getPackingList(filter)
             val data = result.data
             emit(EpApiState.Success(data))
+        }.onStart { emit(EpApiState.Loading()) }
+            .catch {
+                emit(EpApiState.Error(it))
+            }
+    }
+
+    suspend fun getPackingListByColisNumber(NumColis: String,article_num: String): Flow<EpApiState<List<PackingListEntity>>> {
+        return flow<EpApiState<List<PackingListEntity>>> {
+            val filter = "Ligne_ach eq $NumColis and No_Art eq '$article_num'"
+            val result = api.getPackingListByColisNumber(filter)
+            val data = result.data.map { it.isChecked = true; it }
+            emit(EpApiState.Success(data))
+        }.onStart { emit(EpApiState.Loading()) }
+            .catch {
+                emit(EpApiState.Error(it))
+            }
+    }
+
+    suspend fun getPackingListByLigneAch(LigneAch: String): Flow<EpApiState<List<PackingListEntity>>> {
+        return flow<EpApiState<List<PackingListEntity>>> {
+            val filter = "Ligne_ach eq $LigneAch"
+            val result = api.getPackingListByLigneAch(filter)
+            val data = result.data
+            emit(EpApiState.Success(data))
+        }.onStart { emit(EpApiState.Loading()) }
+            .catch {
+                emit(EpApiState.Error(it))
+            }
+    }
+
+    suspend fun updatePackingList(buildPackingListUrl: BuildPackingListUrl): Flow<EpApiState<PackingListEntity>> {
+        return flow<EpApiState<PackingListEntity>> {
+            val result = api.updatePackingList(
+                buildPackingListUrl.getUrl(), buildPackingListUrl.etag,
+                PackingListUpdate()
+            )
+            val data = result.body()
+            data?.let {
+                emit(EpApiState.Success(it))
+            }
         }.onStart { emit(EpApiState.Loading()) }
             .catch {
                 emit(EpApiState.Error(it))

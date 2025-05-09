@@ -4,12 +4,14 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import chari.groupewib.com.app_models.Item
 import chari.groupewib.com.networking.entity.PackingListEntity
 import chari.groupewib.com.networking.entity.StockSaisieEntity
+import chari.groupewib.com.networking.request.BuildPackingListUrl
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderRequest
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderResult
 import chari.groupewib.com.networking.request.PurchaseOrderLinesRequest
@@ -30,10 +32,14 @@ import ghoudan.anfaSolution.com.networking.repository.OrderRepository
 import ghoudan.anfaSolution.com.networking.state.EpApiState
 import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withContext
 
 @HiltViewModel
 class CommandViewModel @Inject constructor(
@@ -422,6 +428,8 @@ class CommandViewModel @Inject constructor(
                     total_weight = weight
                 )
                 orderRepository.getSalesCommandsLine(type, document8no, Line_No)
+                    .distinctUntilChanged()
+                    .flowOn(Dispatchers.IO)
                     .collect { orderLine ->
                         orderLine.data?.etag?.let { it1 ->
                             orderRepository.updateSalesCommandsLine(
@@ -464,7 +472,10 @@ class CommandViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             orderRepository.getSalesCommandsLines(type, document8no, b)
+                .distinctUntilChanged()
+                .flowOn(Dispatchers.IO)
                 .collect { familyBrands ->
+                    itemLineSaleOrderLiveData.value = null
                     itemLineSaleOrderLiveData.value = familyBrands
                 }
         }
@@ -472,17 +483,23 @@ class CommandViewModel @Inject constructor(
 
     fun getCommand() {
         viewModelScope.launch {
-            orderRepository.getSelesCommands().collect { familyBrands ->
-                orderLiveData.value = familyBrands
-            }
+            orderRepository.getSelesCommands()
+                .distinctUntilChanged()
+                .flowOn(Dispatchers.IO)
+                .collect { familyBrands ->
+                    orderLiveData.value = familyBrands
+                }
         }
     }
 
     fun getPorchesCommands() {
         viewModelScope.launch {
-            orderRepository.getPorchesCommands().collect { familyBrands ->
-                orderPushesLiveData.value = familyBrands
-            }
+            orderRepository.getPorchesCommands()
+                .distinctUntilChanged()
+                .flowOn(Dispatchers.IO)
+                .collect { familyBrands ->
+                    orderPushesLiveData.value = familyBrands
+                }
         }
     }
 
@@ -490,11 +507,14 @@ class CommandViewModel @Inject constructor(
         guid: String,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            clientListRepository.getCustomerByID(guid).collectLatest { result ->
-                viewModelScope.launch(Dispatchers.Main) {
-                    customerAnfaLiveData.value = result
+            clientListRepository.getCustomerByID(guid)
+                .distinctUntilChanged()
+                .flowOn(Dispatchers.IO)
+                .collectLatest { result ->
+                    viewModelScope.launch(Dispatchers.Main) {
+                        customerAnfaLiveData.value = result
+                    }
                 }
-            }
         }
     }
 
@@ -540,9 +560,9 @@ class CommandViewModel @Inject constructor(
         }
     }
 
-    fun getPackingListEntity(docType: String,docNo: String): LiveData<EpApiState<List<PackingListEntity>>> {
+    fun getPackingListEntity(docNo: String): LiveData<EpApiState<List<PackingListEntity>>> {
         return liveData {
-            orderRepository.getPackingListEntity(docType,docNo)
+            orderRepository.getPackingListEntity(docNo)
                 .distinctUntilChanged()
                 .flowOn(Dispatchers.IO)
                 .collect {
@@ -550,4 +570,106 @@ class CommandViewModel @Inject constructor(
                 }
         }
     }
+
+    //this to fetch the packing list by ligne ach when clicking on PackingList item
+    fun getPackingListByColisNumber(
+        NumColis: String,
+        article_num: String,
+    ): LiveData<EpApiState<List<PackingListEntity>>> {
+        return liveData {
+            orderRepository.getPackingListByColisNumber(NumColis, article_num)
+                .distinctUntilChanged()
+                .flowOn(Dispatchers.IO)
+                .collect {
+                    emit(it)
+                }
+        }
+    }
+
+    //this to fetch the colis selected inside packing list by ligne ach when clicking on seles line
+    fun getPackingListByLigneAch(LigneAch: String): LiveData<EpApiState<List<PackingListEntity>>> {
+        return liveData {
+            orderRepository.getPackingListByLigneAch(LigneAch)
+                .distinctUntilChanged()
+                .flowOn(Dispatchers.IO)
+                .collect {
+                    emit(it)
+                }
+        }
+    }
+
+    private fun updatePackingList(buildPackingListUrl: BuildPackingListUrl): LiveData<EpApiState<PackingListEntity>> {
+        return liveData {
+            orderRepository.updatePackingList(buildPackingListUrl)
+                .distinctUntilChanged()
+                .flowOn(Dispatchers.IO)
+                .collect {
+                    emit(it)
+                }
+        }
+    }
+
+
+    fun updateArticleColis(
+        stockSaisieList: List<PackingListEntity>,
+        callback: (UpdateColisStatus) -> Unit,
+    ) {
+        callback.invoke(UpdateColisStatus.LOADING)
+
+        val checkedItems = stockSaisieList.filter { it.isChecked }
+
+        if (checkedItems.isEmpty()) {
+            callback.invoke(UpdateColisStatus.DELIVERED)
+            return
+        }
+
+        viewModelScope.launch(Dispatchers.IO) {
+            // Process items in batches to avoid overwhelming the main thread
+            val batchSize = 20
+            val totalBatches = (checkedItems.size + batchSize - 1) / batchSize // Ceiling division
+
+            for (batchIndex in 0 until totalBatches) {
+                val startIndex = batchIndex * batchSize
+                val endIndex = minOf(startIndex + batchSize, checkedItems.size)
+                val batch = checkedItems.subList(startIndex, endIndex)
+
+                val deferreds = batch.map { item ->
+                    async {
+                        val buildPackingListUrl = BuildPackingListUrl(
+                            etag = item.etag,
+                            documentNo = item.document_No,
+                            codeFour = item.codeFour,
+                            numColis = item.numColis.toInt(),
+                            noArt = item.No_Art,
+                            ligneAch = item.Ligne_ach
+                        )
+
+                        try {
+                            orderRepository.updatePackingList(buildPackingListUrl)
+                                .distinctUntilChanged()
+                                .flowOn(Dispatchers.IO)
+                                .collect { result ->
+                                    result is EpApiState.Success
+                                }
+                        } catch (e: Exception) {
+                            false
+                        }
+                    }
+                }
+
+                // Wait for batch completion before proceeding to next batch
+                deferreds.awaitAll()
+            }
+
+            withContext(Dispatchers.Main) {
+                callback.invoke(UpdateColisStatus.DELIVERED)
+            }
+        }
+    }
+}
+
+enum class UpdateColisStatus {
+    LOADING,
+    DELIVERED,
+    CANCELLED
 }
