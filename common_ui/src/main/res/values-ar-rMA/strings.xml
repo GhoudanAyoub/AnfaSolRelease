@@ -110,4 +110,5 @@
     <string name="confirm_my_order">تأكيد الطلب</string>
     <string name="qte">الكمية: %s</string>
     <string name="promotions_label">العروض</string>
+    <string name="no_packing_list">Pas de colis cochés</string>
 </resources>

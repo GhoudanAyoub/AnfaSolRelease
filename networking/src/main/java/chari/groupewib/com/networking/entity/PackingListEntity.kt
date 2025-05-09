@@ -5,6 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class PackingListEntity(
+    @SerialName("@odata.etag")
+    val etag: String,
+    @SerialName("Document_No")
+    val document_No: String,
     @SerialName("Date_Ach")
     val dateAch: String,
     @SerialName("Pu_ach")
@@ -19,5 +23,11 @@ data class PackingListEntity(
     val restePoids: String,
     @SerialName("Saisie_colis")
     val saisieColis: String,
+    @SerialName("indice")
+    val indice: Int,
+    @SerialName("Ligne_ach")
+    val Ligne_ach: Int,
+    @SerialName("No_Art")
+    val No_Art: String,
     var isChecked: Boolean = false
 )

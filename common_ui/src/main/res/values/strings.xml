@@ -127,4 +127,5 @@
     <string name="deleteSupplier_alert_msg" translatable="false">Vous êtes sur le point de supprimer un fournisseur.\n êtes-vous sûr de vouloir continuer?</string>
     <string name="total_colis" translatable="false">Total colis : %s</string>
     <string name="total_poids" translatable="false">Total poids : %1$.2f</string>
+    <string name="no_packing_list">Pas de colis cochés</string>
 </resources>

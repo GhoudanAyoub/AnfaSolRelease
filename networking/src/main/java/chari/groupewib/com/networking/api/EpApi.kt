@@ -9,6 +9,7 @@ import chari.groupewib.com.networking.request.CreateClientRequest
 import chari.groupewib.com.networking.request.CreateItemRequest
 import chari.groupewib.com.networking.request.CreateSupplierRequest
 import chari.groupewib.com.networking.request.ItemEntityResponse
+import chari.groupewib.com.networking.request.PackingListUpdate
 import chari.groupewib.com.networking.request.PurchaseItemEntityResponse
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderRequest
 import chari.groupewib.com.networking.request.PurchaseOrderHeaderResult
@@ -262,9 +263,26 @@ interface EpApi {
     @GET("Company('ABFISH-140')/StockSaisieList")
     suspend fun getStockSaisieList(): EPApiCollectionResponse<List<StockSaisieEntity>>
 
-    @GET("Company('ABFISH-140')/PackingList?\$filter=No_Art eq 'COROI' and flag_entierement_affecté ne true")
+    @GET("Company('ABFISH-140')/PackingList")
     suspend fun getPackingList(
+        @Query("\$filter") filter :String
     ): EPApiCollectionResponse<List<PackingListEntity>>
 
+    @GET("Company('ABFISH-140')/PackingList")
+    suspend fun getPackingListByColisNumber(
+        @Query("\$filter") filter :String
+    ): EPApiCollectionResponse<List<PackingListEntity>>
+
+    @GET("Company('ABFISH-140')/PackingList")
+    suspend fun getPackingListByLigneAch(
+        @Query("\$filter") filter :String
+    ): EPApiCollectionResponse<List<PackingListEntity>>
+
+    @PATCH
+    suspend fun updatePackingList(
+        @Url url: String,
+        @Header("if-Match") Etag: String,
+        @Body update: PackingListUpdate
+    ): Response<PackingListEntity>
 
 }
